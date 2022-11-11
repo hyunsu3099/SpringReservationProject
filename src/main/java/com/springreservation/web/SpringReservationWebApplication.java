@@ -1,4 +1,4 @@
-package com.kinderplayroom.web;
+package com.springreservation.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
