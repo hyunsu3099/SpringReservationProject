@@ -1,11 +1,146 @@
 @font-face {
-    font-family: 'YiSunShinRegular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YiSunShinRegular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    font-family: "YiSunShinB";
+    font-weight: 500;
+    src: url("/css/inc/fonts/YiSoonShinB.woff") format("woff");
+  }
+
+:root{
+    --YIfontcolor : #352F2D;
+    --table_tab_color: rgb(199,200,200);
+    --green_circle: rgb(106,183,47);
+    --yellow_circle: rgb(241,173,51);
+    --grey_circle: rgb(141,141,141);
 }
 
 
-.main_desc *{
-    font-family: 'YiSunShinRegular';
+/*index 전체 container*/
+.index_container{
+
 }
+
+/*로고 background image*/
+.index_container .index_signature_logo p{
+    width: 102px;
+    height: 74px;
+    background-image: url("/images/logo/signature_yzhs-ptpt@1.5x.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 25px auto 50px auto;
+}
+
+/*이순신체 설명부분*/
+.index_container .index_desc *{
+    font-family: 'YiSunShinB';
+    font-size: 19pt;
+    color: var(--YIfontcolor);
+}
+.index_container .index_desc div{margin: 0 auto 8px auto;}
+.index_container .index_desc div:nth-child(2){ margin-bottom:15px;}
+.index_container .index_desc_kr{width:450px;}
+.index_container .index_desc_en{width:490px;}
+.index_container .index_desc span{display: justify;}
+
+/*표*/
+.index_table_container > .index_table_tables{
+    width : 450px;
+	margin: 50px auto 20px auto;
+    display: flex;
+	flex-direction: row;
+
+    position:relative;
+    transform:translateX(-30px);
+}
+/*표: 6일 표시 및 이전다음 요청*/
+.index_table_container > .index_table_tables p{
+    height: 25px;
+    text-align: center;
+}
+.index_table_container > .index_table_tables>span:nth-child(2)>p {
+    background-color: var(--table_tab_color);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+}
+/*표: 각 칸 크기 제한*/
+.index_table_container tbody td div{width:25px; height: 25px;}
+
+/*표: 열이름 표*/
+.index_table_container .table_rowname{
+    width:50px;
+    text-align: center;
+    border-right: solid 1px var(--YIfontcolor);
+}
+
+/*표: 예약현황 표*/
+.index_table_container .table_reservation{
+    width:400px;
+}
+.index_table_container .table_reservation thead{font-size: 0.9rem;}
+
+
+/*표: index*/
+.index_table_container .index_table_status{
+    width : 520px;
+    margin: 5px auto 20px auto;
+    font-size: 0.8rem;
+    text-align: end;
+}
+.index_table_container .index_table_status div{ margin-left: 30px;}
+
+/*표: label*/
+.index_table_container .index_table_label{
+    width : 300px; margin: 5px auto 20px auto;
+    font-size: 1.3rem;
+    font-stretch: ultra-condensed;
+}
+/*첫번째 레이블 굵게, 두번째레이블 간격좁게*/
+.index_table_container .index_table_label >div:nth-child(1){font-weight: 600;}
+.index_table_container .index_table_label >div:nth-child(2){
+    position: relative; transform: translateY(-10px);
+}
+/*세번째줄 레이블 크기작게*/
+.index_table_container .index_table_label > .label_desc{
+    font-size: 1rem; position: relative; transform: translateY(-15px);
+}
+
+
+
+/*박스 메뉴 컨테이너*/
+.index_menu_container{
+
+    width : 90%;
+    max-width: 800px;
+    margin: 120px auto 20px auto;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.index_menu_container .index_menu_item{
+    width:50%;
+    margin: 40px 0 0 0;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+/*표: item 원 속성*/
+.green_circle, .yellow_circle, .grey_circle{
+    display:inline-block; width : 24px; height : 24px;
+    border-radius: 50%;
+}
+
+.green_circle{ background-color: var(--green_circle); }
+.yellow_circle{ background-color: var(--yellow_circle); }
+.grey_circle{ background-color: var(--grey_circle); }
+
+.small_circle{width : 10px; height : 10px; }
+
+
+
