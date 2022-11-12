@@ -4,9 +4,9 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-  <definition name="index" template="/inc/layout_index.jsp">
-    <put-attribute name="header" value="/inc/header.jsp" />
-    <put-attribute name="main" value="/index.jsp" />
-    <put-attribute name="footer" value="/inc/footer.jsp" />
+  <definition name="index" template="/WEB-INF/view/inc/layout_index.jsp">
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="main" value="/WEB-INF/view/index.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
   </definition>
 </tiles-definitions>
