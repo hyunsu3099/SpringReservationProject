@@ -87,47 +87,49 @@
             </div>
         </div> <!--표 컨테이너 내용 끝-->
         
+        
+        <!--메뉴 내용들-->
+        <div class="index_menu_container">
+            <div class="index_menu_item" id="item1">
+                <div style="background-color:#ECC8D3;"><a></a></div>
+                <div>
+                    <div><a>예약하기</a></div>
+                    <div><a>Reservation</a></div>
+                    <div><a>원하는날짜에 예약해 보세요</a></div>
+                </div>
+            </div>
+            <div class="index_menu_item" id="item2">
+                <div style="background-color:#E9DDAE;"><a></a></div>
+                <div>
+                    <div><a>오시는길</a></div>
+                    <div><a>Map</a></div>
+                    <div><a>위치를 확인하세요</a></div>
+                </div>
+            </div>
+            <div class="index_menu_item"id="item3">
+                <div style="background-color:#ECC8D3;"><a></a></div>
+                <div>
+                    <div><a>공지사항</a></div>
+                    <div><a>Board</a></div>
+                    <div><a>공지사항 내용을 확인하세요</a></div>
+                </div>
+            </div>
+            <div class="index_menu_item" id="item4">
+                <div style="background-color:#ECC8D3;"><a></a></div>
+                <div>
+                    <div><a>서비스소개</a></div>
+                    <div><a>Service</a></div>
+                    <div><a>이 웹사이트의 서비스를 소개합니다.</div></p>
+                </div>
+            </div>
+        </div>
+
         <script>
             $(".index_menu_container>#item1 a").attr('href','/reservation/get');
             $(".index_menu_container>#item2 a").attr('href','/map/get');
             $(".index_menu_container>#item3 a").attr('href','/board/get');
             $(".index_menu_container>#item4 a").attr('href','/introduction/get');
         </script>
-        <!--메뉴 내용들-->
-        <div class="index_menu_container">
-            <div class="index_menu_item" id="item1">
-                <div style="background-color:#ECC8D3;"><a></a></div>
-                <div>
-                    <p><a>예약하기</a></p>
-                    <p><a>Reservation</a></p>
-                    <p><a>원하는날짜에 예약해 보세요</a></p>
-                </div>
-            </div>
-            <div class="index_menu_item" id="item2">
-                <div style="background-color:#E9DDAE;"><a></a></div>
-                <div>
-                    <p><a>오시는길</a></p>
-                    <p><a>Map</a></p>
-                    <p><a>위치를 확인하세요</a></p>
-                </div>
-            </div>
-            <div class="index_menu_item"id="item3">
-                <div style="background-color:#ECC8D3;"><a></a></div>
-                <div>
-                    <p><a>공지사항</a></p>
-                    <p><a>Board</a></p>
-                    <p><a>공지사항 내용을 확인하세요</a></p>
-                </div>
-            </div>
-            <div class="index_menu_item" id="item4">
-                <div style="background-color:#ECC8D3;"><a></a></div>
-                <div>
-                    <p><a>서비스소개</a></p>
-                    <p><a>Service</a></p>
-                    <p><a>이 웹사이트의 서비스를 소개합니다.</a></p>
-                </div>
-            </div>
-        </div>
 
     </div>    
 </main>

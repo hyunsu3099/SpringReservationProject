@@ -18,6 +18,9 @@
 
 }
 
+.index_container a{text-decoration: none; color:var(--YIfontcolor);
+}
+
 /*로고 background image*/
 .index_container .index_signature_logo p{
     width: 102px;
@@ -109,10 +112,9 @@
 
 /*박스 메뉴 컨테이너*/
 .index_menu_container{
-
     width : 90%;
     max-width: 800px;
-    margin: 120px auto 20px auto;
+    margin: 120px auto 200px auto;
     display:flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -120,11 +122,43 @@
 
 .index_menu_container .index_menu_item{
     width:50%;
-    margin: 40px 0 0 0;
+    margin: 40px 0 70px 0;
     display: inline-block;
 }
+/*박스 메뉴 배경지정*/
+.index_menu_container>.index_menu_item>div:first-child{
+    width:90%;
+    aspect-ratio: 4/3;
+}
+.index_menu_container>.index_menu_item>div:first-child > a{
+    padding-right: 100%;
+    padding-bottom: 67%;
+    background-position: center;
+    background-size: cover;
+}
+.index_menu_container #item1>div:first-child>a{
+    background-image: url('/images/menues/reservation.png');
+}
+.index_menu_container #item2>div:first-child> a{
+    background-image: url('/images/menues/map.png');
+}
+.index_menu_container #item3>div:first-child> a{
+    background-image: url('/images/menues/board.png');
+}
+.index_menu_container #item4>div:first-child> a{
+    
+}
 
-
+/*박스 메뉴 레이블*/
+.index_menu_container>.index_menu_item>div:nth-child(2){
+    width : 300px;
+    font-size: 1rem;
+    font-stretch: ultra-condensed;
+}
+/*박스 메뉴 레이블 첫번째 굵게, 크게*/
+.index_menu_container>.index_menu_item>div:nth-child(2)>div:first-child{
+    font-weight: 600; font-size: 1.2rem;
+}
 
 
 
@@ -141,6 +175,3 @@
 .grey_circle{ background-color: var(--grey_circle); }
 
 .small_circle{width : 10px; height : 10px; }
-
-
-
