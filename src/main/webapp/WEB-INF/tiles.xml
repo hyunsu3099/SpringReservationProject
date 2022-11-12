@@ -8,5 +8,6 @@
     <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
     <put-attribute name="main" value="/WEB-INF/view/index.jsp" />
     <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+    <put-attribute name="includeCSS" value="/css/index.css" />
   </definition>
 </tiles-definitions>
