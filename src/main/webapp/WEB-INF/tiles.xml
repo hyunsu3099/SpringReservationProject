@@ -9,5 +9,6 @@
     <put-attribute name="main" value="/WEB-INF/view/index.jsp" />
     <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
     <put-attribute name="includeCSS" value="/css/index.css" />
+    <put-attribute name="includeJS" value="/js/index.js" />
   </definition>
 </tiles-definitions>

@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="/css/inc/main.css">
     <link rel="stylesheet" href="<tiles:getAsString name="includeCSS" />">
+    <script src="/js/inc/main.js"></script>
+    <script src="<tiles:getAsString name="includeJS" />"></script>
 </head>
 <body>
 
