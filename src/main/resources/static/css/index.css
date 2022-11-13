@@ -77,11 +77,9 @@
 }
 
 /*표: 예약현황 표*/
-.index_table_container .table_reservation{
-    width:400px;
-}
+.index_table_container .table_reservation{width:400px;}
 .index_table_container .table_reservation thead{font-size: 0.9rem;}
-
+.index_table_container .table_reservation tbody tr td { text-align: center;}
 
 /*표: index*/
 .index_table_container .index_table_status{
