@@ -33,7 +33,7 @@
             <span>
                 <p>
                     <span class="left">◀ </span>
-                    <span class="table_header">11/12(월) ~ 11/17(목)</span>
+                    <span class="table_header" id="table_thisweeks">11/12(월) ~ 11/17(목)</span>
                     <span class="right"> ▶</span>
                 </p>
                 <table class="table_reservation" id="table_reservation">

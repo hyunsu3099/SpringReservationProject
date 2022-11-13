@@ -1,4 +1,5 @@
 import TableRequest from './TableRequest.js'
+import DayColumns from './DayColumns.js'
 
 /*표 내용을 채워줄 클래스*/
 export default class FillingTable{
@@ -10,12 +11,35 @@ export default class FillingTable{
     values = {
         circle_class:["grey_circle","green_circle","yellow_circle"],
         status:[0,1,2],
-        dayColumns:[]
+        dateObjs:[], //{호출카운트:날짜 str 배열}로 객체
+        count: 1 //호출 카운트
     }
 
-    /* table request 객체 */
+    /* table request, DayColumns 객체 */
     tableRequest;
+    dayColumns;
 
+    /** 열채우기 */
+    fillDayColumns = function(){
+        let tempstartpoint = this.values.dateObjs.length -6;
+        let selectorTagPrefix = '#' + this.id.table +'>thead';
+        for(let i=0; i<6;i++){
+            let tempSelectorTag = selectorTagPrefix+` td:nth-child(${i+1})`;
+            $(tempSelectorTag).empty();
+            $(tempSelectorTag).text(this.values.dateObjs[tempstartpoint + i].strforCol);
+        }
+    }
+     /** 테이블 위 날자 업데이트 */
+    fillBarLabel(){
+        let tempstartpoint = this.values.dateObjs.length -6;
+        let tempSelectorTag = '#' +this.id.p_above_table_span;
+        let temp_text = this.values.dateObjs[tempstartpoint].strforCol + ' ~ '
+        + this.values.dateObjs[tempstartpoint+5].strforCol;
+        $(tempSelectorTag).empty();
+        $(tempSelectorTag).text(temp_text);
+    }
+
+    /** */
     fillCircles = function(){
         let selectorTagPrefix = '#' + this.id.table +'>tbody';
 
@@ -39,7 +63,9 @@ export default class FillingTable{
     }
 
     initiate =function(id){
-        this.id=id
+        this.id=id;
         this.tableRequest= new TableRequest();
+        this.dayColumns= new DayColumns();
+        this.values.dateObjs = this.dayColumns.get6Days();
     };
 }
