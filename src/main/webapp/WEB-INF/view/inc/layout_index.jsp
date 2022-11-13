@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="/css/inc/main.css">
     <link rel="stylesheet" href="<tiles:getAsString name="includeCSS" />">
     <!--로컬 js 파일-->
-    <script src="/js/inc/main.js"></script>
-    <script src="<tiles:getAsString name="includeJS" />"></script>
+    <script type="text/javascript" src="/js/inc/main.js"></script>
+    <script type="module" src="<tiles:getAsString name="includeJS" />"></script>
 </head>
 <body>
 

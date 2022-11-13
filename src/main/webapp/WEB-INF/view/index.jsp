@@ -36,7 +36,7 @@
                     <span class="table_header">11/12(월) ~ 11/17(목)</span>
                     <span class="right"> ▶</span>
                 </p>
-                <table class="table_reservation">
+                <table class="table_reservation" id="table_reservation">
                     <colgroup>
                         <!--6개 열-->
                         <col>
