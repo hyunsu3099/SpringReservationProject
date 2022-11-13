@@ -31,38 +31,29 @@
             </span>
             <!--예약페이지 표, js로 옆으로 가기 누를때에 다음표 만들기 구현하기-->
             <span>
-                <p>
-                    <span class="left">◀ </span>
-                    <span class="table_header" id="table_thisweeks">11/12(월) ~ 11/17(목)</span>
-                    <span class="right"> ▶</span>
-                </p>
-                <table class="table_reservation" id="table_reservation">
-                    <colgroup>
+                <ul class="index_table_items" id="index_table_items">
+                    <li class="index_table_item" id="index_table_item_1">
+                        <div class="hidden"></div>
+                        <p>
+                            <span class="left"><a>◀ </a></span>
+                            <span class="table_header">11/12(월) ~ 11/17(목)</span>
+                            <span class="right"><a> ▶</a></span>
+                        </p>
+                        <table class="table_reservation">
                         <!--6개 열-->
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <td>11/12(월)</td>
-                            <td>11/13(화)</td>
-                            <td>11/14(수)</td>
-                            <td>11/15(목)</td>
-                            <td>11/16(금)</td>
-                            <td>11/17(토)</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
-                        <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
-                        <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
-                        <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
-                    </tbody>
-                </table>
+                        <colgroup><col> <col><col><col><col><col></colgroup>
+                        <thead>
+                            <tr><td>11/12(월)</td><td>11/13(화)</td><td>11/14(수)</td><td>11/15(목)</td><td>11/16(금)</td><td>11/17(토)</td></tr>
+                        </thead>
+                        <tbody><!-- 총 6 * 4 개 칼럼-->
+                            <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                            <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                            <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                            <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                        </tbody>
+                        </table>
+                    </li>
+                </ul>
             </span>
             </div>
         

@@ -17,14 +17,14 @@ export default class DayColumns{
     getNext6Days = function(firstDayOfPrev6Days){
         let tempdate = new Date(firstDayOfPrev6Days.substring(0,4)+'-'+
         firstDayOfPrev6Days.substring(4,6)+'-'+firstDayOfPrev6Days.substring(6,8));
-        this.startDate = date.setDate(date.getDate() +6);
+        this.startDate = tempdate.setDate(tempdate.getDate()+6);
         return this.get6DaysLoop();
     }
     /*다음주 첫날 날짜입력('yyyymmdd') -> 6일전부터 6일 날짜출력  */
-    getPrev6Days = function(firstDayOfNext6Days){
+    getPrev6Days = function(firstDayOfPrev6Days){
         let tempdate = new Date(firstDayOfPrev6Days.substring(0,4)+'-'+
         firstDayOfPrev6Days.substring(4,6)+'-'+firstDayOfPrev6Days.substring(6,8));
-        this.startDate = date.setDate(date.getDate() +6);
+        this.startDate = tempdate.setDate(tempdate.getDate() -6);
         return this.get6DaysLoop();
     }
 
@@ -46,8 +46,8 @@ export default class DayColumns{
 }
 
 class DateObj{
-    
-
+    strforCol='mm/dd(월)';
+    strInDay='yyyymmdd';
     constructor(currentdate){
         let date = new Date(currentdate);
         let month = date.getMonth() + 1;
