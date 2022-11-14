@@ -1,5 +1,5 @@
-import TableRequest from './TableRequest.js'
-import DayColumns from './DayColumns.js'
+import TableRequest from './TableRequest.js';
+import DayColumns from './DayColumns.js';
 
 /*표 내용을 채워줄 클래스*/
 export default class FillingTable{
@@ -62,7 +62,7 @@ export default class FillingTable{
             $(tempSelectorTag).empty();
             $(tempSelectorTag).append(temp_html);
         }
-
+        
     }
 
     /* */

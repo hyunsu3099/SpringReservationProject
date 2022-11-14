@@ -1,8 +1,7 @@
-import TableRequest from "./TableRequest.js";
-import DayColumns from "./DayColumns.js";
+import DayColumns from './DayColumns.js';
+import TableRequest from './TableRequest.js';
 
 export default class LoadSideTables{
-
     //dom 객체
     id = {};
     
@@ -25,7 +24,6 @@ export default class LoadSideTables{
         let tempDayStr = $(tempSelectorTag +' .hidden').text();
 
         //dayColumns을 통해 6일 칼럼 얻기
-        console.log(tempDayStr);
         let data;
         if(funcNum>0){data = this.dayColumns.getNext6Days(tempDayStr);
         }else{data = this.dayColumns.getPrev6Days(tempDayStr);}
@@ -46,8 +44,7 @@ export default class LoadSideTables{
 
             const clone = $('#'+this.id.li).html(); //li tag 하위복제
             newId += this.values.tableReady.length;
-
-            const temp_html= `<li id="${newId}" class="${this.id.clone_name}"></li>`;;
+            const temp_html= `<li class="${this.id.li_class}" id="${newId}" ></li>`;;
             if(funcNum>0){
 				$('#'+this.id.ul).append(temp_html);
 			}else{
@@ -57,10 +54,30 @@ export default class LoadSideTables{
             $('#'+newId).append(clone);
         }
 
+
         let response;
-        try{ response = tableRequest.getResponse()}
+        try{ response = tableRequest.getResponse(data[0].strInDay)}
         catch{}
+        this.id.li = newId;
+
         return new tableDatas(newId, data, response, status);
+    }
+
+    transform = function(){
+        const minPos = this.values.tableReady.reduce((previous, current) => { 
+            return previous > current ? current:previous;
+        });
+        const currentPos = this.values.tablePos-minPos;
+        if(currentPos==0 && this.values.tablePos<0){ 
+            let promise = new Promise((resolve, reject) => {
+                $('#'+this.id.ul +' >.'+this.id.li_class).css('transition','');
+                $('#'+this.id.ul +' >.'+this.id.li_class).css('transform','translateX(-100%)');
+            });
+                $('#'+this.id.ul +' >.'+this.id.li_class).css('transition','.3s');
+        }
+        setTimeout(() => {
+            $('#'+this.id.ul +' >.'+this.id.li_class).css('transform',`translateX(${-100*currentPos}%)`);
+        },100);
     }
 
     constructor(){
