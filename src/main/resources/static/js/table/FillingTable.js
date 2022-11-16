@@ -9,7 +9,7 @@ export default class FillingTable{
 
     /* */
     values = {
-        circle_class:["grey_circle","green_circle","yellow_circle"],
+        circle_class:["grey_circle","yellow_circle","green_circle"],
         status:[0,1,2],
         dateObjs:[], //{호출카운트:날짜 str 배열}로 객체
         count: 1, //호출 카운트
@@ -56,12 +56,12 @@ export default class FillingTable{
             result =this.values.result;
         }
         /* 각예약 Column에 예약 상태를 집어 넣는다. */
-        for(let i=0; i<24;i++){
-            let temp_html = `<div class='${this.values.circle_class[result[i]]}'></div>`;
-            let tempSelectorTag = selectorTagPrefix+` td:nth-child(${i+1})`;
+        for(let i=0; i<4;i++){for(let j=0; j<6;j++){
+            let temp_html = `<div class='${this.values.circle_class[result[i*6+j]]}'></div>`;
+            let tempSelectorTag = selectorTagPrefix+`>tr:nth-child(${i+1})>td:nth-child(${j+1})`;
             $(tempSelectorTag).empty();
             $(tempSelectorTag).append(temp_html);
-        }
+        }}
         
     }
 
@@ -78,13 +78,9 @@ export default class FillingTable{
     }
     initiate =function(id){
         this.id=id;
-        this.tableRequest= new TableRequest();
         this.dayColumns= new DayColumns();
         this.values.dateObjs = this.dayColumns.get6Days();
-        try{
-            this.values.result = tableRequest.getStatus();
-        }catch(e){
-            console.log('아직request가 준비되지 않음:',e);
-        }
+        try{ this.values.result =new TableRequest().getStatus(this.values.dateObjs[0]);}
+        catch(e){console.log('아직request가 준비되지 않음:');}
     };
 }

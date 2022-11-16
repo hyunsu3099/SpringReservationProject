@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springreservation.web.dao.ReservationDao">
+
+    <resultMap type="com.springreservation.web.entity.Reservation" id="reservation">
+            <result column="id" property="reservationId" />
+            <result column="reservation_date" property="reservationDate" />
+            <result column="reservation_time" property="reservationTime" />
+            <result column="reservation_room" property="reservationRoom"/>
+            <result column="reservation_yn" property="reservationYn" />
+            <result column="member_name" property="memberName" />
+            <result column="reg_date" property="regDate" />
+    </resultMap>
+    <select id="getReservationList" resultMap="reservation">
+        SELECT
+            id, 
+            member_name, 
+            TO_CHAR(reservation_date , 'YYYYMMDD') as reservation_date,
+            reservation_time,
+            reservation_room,
+            reservation_yn
+        FROM RESERVATION r
+        WHERE r.reservation_date BETWEEN 
+            TO_DATE('${startdate}', 'YYYYMMDD')
+            AND TO_DATE('${enddate}', 'YYYYMMDD') 
+        ORDER BY reservation_room asc,
+            reservation_date asc,
+            reservation_time ASC
+    </select>
+</mapper>
