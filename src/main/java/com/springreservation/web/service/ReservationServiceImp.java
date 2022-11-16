@@ -27,8 +27,8 @@ public class ReservationServiceImp implements ReservationService {
             nowdate = formatter.parse(startdate);
         } catch (ParseException e) {
             nowdate=new Date();
+            startdate = formatter.format(nowdate);
         }
-		String strStartDate = formatter.format(nowdate);
 		Calendar cal = Calendar.getInstance();
         cal.setTime(nowdate);
 		cal.add(Calendar.DATE, 5);
@@ -47,6 +47,7 @@ public class ReservationServiceImp implements ReservationService {
         cal.setTime(nowdate);
 		cal.add(Calendar.DATE, 5);
 		String enddate = formatter.format(cal.getTime());
+
         return getReservationList(startdate, enddate);
     }
 
