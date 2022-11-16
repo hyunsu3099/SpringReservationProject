@@ -73,6 +73,19 @@
 		    <scope>provided</scope>
 		    <optional>true</optional>
 		</dependency>
+
+		<!-- 마이바티스 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<!-- ojdbc -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+		</dependency>
 		
 	</dependencies>
 	

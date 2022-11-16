@@ -1,6 +1,7 @@
 package com.springreservation.web.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +39,14 @@ public class HomeController{
          * Reservation 모델 -> ReservationStatusDto 로 바꾸는 로직 추가필요
          * 
          */
+        int amountOfRooms = 4; int amountOfDays= 6;
+        String[] rooms = {"A","B","C","D"};
+        result = new ArrayList<ReservationStatusDto>();
+        for(int i=0;i<amountOfRooms;i++) for(int j=0;j<amountOfDays;j++){
+            ReservationStatusDto temp = new ReservationStatusDto();
+
+            result.add(temp);
+        }
 		
 		ObjectMapper oMap = new ObjectMapper();
 		try {response.getWriter().print(oMap.writeValueAsString(result));}
