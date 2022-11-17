@@ -3,7 +3,7 @@ pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <main>
-  <div class="login_container">
+  <div class="login_container" >
     <div>
         <span class="signature_logo"><p></p></span>
         <span class="radio_groups">
@@ -22,60 +22,66 @@ pageEncoding="UTF-8"%>
         </span>
     </div>
 
-    <form id="form_1">
+    <div id="form_1" class="form">
       <div class="mb-3">
         <label for="input_email" class="form-label">이메일 주소</label>
-        <input type="email" class="form-control" id="input_email" aria-describedby="emailHelp"/>
-        <div id="emailHelp" class="form-text">
+        <input type="email" class="form-control input_id" id="input_email" aria-describedby="email_help_1"/>
+        <div id="email_help_1" class="form-text input_id_help">
         </div>
       </div>
       <div class="mb-3">
-        <label for="input_password_1" class="form-label">비밀번호</label>
-        <input type="password" class="form-control" id="input_password_1" />
+        <label for="input_pw_1" class="form-label">비밀번호</label>
+        <input type="password" class="form-control input_pw" id="input_pw_1" aria-describedby="pw_help_1"/>
+        <div id="pw_help_1" class="form-text input_pw_help">
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">로그인</button>
-    </form>
+      <button class="btn btn-primary">로그인</button>
+    </div>
 
-    <form id="form_2" class="hidden">
+    <div id="form_2" class="hidden form">
         <div class="mb-3">
           <label for="input_phonenumber" class="form-label">전화번호</label>
-          <input type="email" class="form-control" id="input_phonenumber" aria-describedby="phoneHelp"/>
-          <div id="phoneHelp" class="form-text">
+          <input type="tel" class="form-control input_id" id="input_phonenumber" aria-describedby="phonenumber_help" required pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"/>
+          <div id="phonenumber_help" class="form-text input_id_help">
+            예) 010-1234-5678
           </div>
         </div>
         <div class="mb-3">
           <label for="input_password_2" class="form-label">비밀번호</label>
-          <input type="password" class="form-control" id="input_password_2" aria-describedby="passwordHelp"/>
-        </div>
-        <div id="passwordHelp" class="form-text">
+          <input type="password" class="form-control input_pw" id="input_pw_2" aria-describedby="pw_help_2" maxlength="4" />
+          <div id="pw_help_2" class="form-text input_pw_help">
             비밀번호 4자리를 입력해주세요
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
-    </form>
-    <form id="form_3" class="hidden">
+        <button class="btn btn-primary">로그인</button>
+    </div>
+    <div id="form_3" class="hidden form">
         <div class="mb-3">
             <label for="input_email_admin" class="form-label" >관리자 이메일</label>
-            <input type="email" class="form-control" id="input_email_admin" aria-describedby="emailHelp"/>
-            <div id="emailHelp" class="form-text">
+            <input type="email" class="form-control input_id" id="input_email_admin" aria-describedby="email_help_2"/>
+            <div id="email_help_2" class="form-text input_id_help">
             </div>
         </div>
         <div class="mb-3">
             <label for="input_password_admin" class="form-label">비밀번호</label>
-            <input type="password" class="form-control" id="input_password_admin" />
+            <input type="password" class="form-control input_pw" id="input_pw_admin" aria-describedby="pw_help_3"/>
+            <div id="pw_help_3" class="form-text input_pw_help">
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
-    </form>
+        <button class="btn btn-primary">로그인</button>
+    </div>
 
     <p class="login_info">
-      <span><a href="#">아이디 찾기</a>|</span>
+      <span><a hredivf="#">아이디 찾기</a>|</span>
       <span><a href="#">비밀번호 찾기</a>|</span>
       <span><a href="#">회원가입</a></span>
     </p>
   </div>
   <script>
+    //radio 버튼 클릭시 폼 변경
     $("input[name='flexRadioDefault']").change(()=>{
         const thisnum =  $("input[name='flexRadioDefault']:checked").attr('id').slice(-1);
-        $('form').addClass('hidden');
+        $('.form').addClass('hidden');
         $('#form_'+thisnum).removeClass('hidden');
     });
   </script>

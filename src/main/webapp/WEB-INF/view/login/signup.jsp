@@ -17,15 +17,15 @@ pageEncoding="UTF-8"%>
       </div>
 
       <div class="form-floating">
-        <input type="password" class="form-control" id="input_password" aria-describedby="password_help"/>
-        <label for="input_password">비밀번호</label>
-        <div id="password_help" class="form-text"></div>
+        <input type="password" class="form-control" id="input_pw" aria-describedby="password_help"/>
+        <label for="input_pw">비밀번호</label>
+        <div id="pw_help" class="form-text"></div>
       </div>
 
       <div class="form-floating">
-        <input type="password" class="form-control" id="input_password_chk" aria-describedby="password_chk_help"/>
-        <label for="input_password_chk">비밀번호 확인</label>
-        <div id="password_chk_help" class="form-text"></div>
+        <input type="password" class="form-control" id="input_pw_chk" aria-describedby="password_chk_help"/>
+        <label for="input_pw_chk">비밀번호 확인</label>
+        <div id="pw_chk_help" class="form-text"></div>
       </div>
 
       <div class="form-floating">
@@ -35,12 +35,12 @@ pageEncoding="UTF-8"%>
       </div>
       <div class="form-floating">
         <input type="tel" class="form-control" id="input_phone" aria-describedby="phone_help"/>
-        <label for="input_phone">전화번호</label>
-        <div id="phne_help" class="form-text"></div>
+        <label for="input_phone">전화번호(ex 010-1234-5678)</label>
+        <div id="phone_help" class="form-text"></div>
       </div>
 
       <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="button">회원가입</button>
+        <button id="btn" class="btn btn-primary" type="button">회원가입</button>
       </div>
 
     </form>

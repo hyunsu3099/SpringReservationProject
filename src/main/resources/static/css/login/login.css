@@ -29,17 +29,19 @@
 .login_container .radio_groups{ margin:auto 0 10px 40px;}
 .login_container .form-check{ display: inline-block; }
 
-.login_container form{
+.login_container .form{
     background-color: white;
     padding: 50px 5% 30px 5%;
     border: 1px solid var(--YIfontcolor);
     border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-.login_container form .btn{
+.login_container .form .btn{
     margin-top: 20px;
 }
 .login_container .login_info{margin:10px auto 0 auto; text-align: center;}
 .login_container .login_info span a{margin:0 30px 0 30px; text-decoration: none; color: var(--YIfontcolor);}
 .login_container .login_info span:first-child a{margin-left:0;}
 .login_container .login_info span:nth-child(3) a{margin-right:0;}
+
+.red_text{ color:red;}
