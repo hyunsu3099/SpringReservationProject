@@ -65,6 +65,12 @@ pageEncoding="UTF-8"%>
         </div>
         <button type="submit" class="btn btn-primary">로그인</button>
     </form>
+
+    <p class="login_info">
+      <span><a href="#">아이디 찾기</a>|</span>
+      <span><a href="#">비밀번호 찾기</a>|</span>
+      <span><a href="#">회원가입</a></span>
+    </p>
   </div>
   <script>
     $("input[name='flexRadioDefault']").change(()=>{
