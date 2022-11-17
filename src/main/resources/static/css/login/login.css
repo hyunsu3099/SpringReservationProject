@@ -1,0 +1,41 @@
+/**
+* 
+*
+*
+*
+*/
+.login_container{
+    width: 70%;
+    max-width: 600px;
+    margin: 100px auto 0 auto;
+}
+.login_container>div:first-child{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+.login_container>div:first-child .signature_logo{
+    background: radial-gradient(white 10px, var(--background_beige) 50%);
+}
+.login_container>div:first-child .signature_logo p{
+    width: 70px;
+    height: 50px;
+    background-image: url("/images/logo/signature_yzhs-ptpt@1.5x.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/***/
+.login_container .radio_groups{ margin:auto 0 10px 40px;}
+.login_container .form-check{ display: inline-block; }
+
+.login_container form{
+    background-color: white;
+    padding: 50px 5% 30px 5%;
+    border: 1px solid var(--YIfontcolor);
+    border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.login_container form .btn{
+    margin-top: 20px;
+}

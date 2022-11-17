@@ -11,4 +11,13 @@
     <put-attribute name="includeCSS" value="/css/index.css" />
     <put-attribute name="includeJS" value="/js/index.js" />
   </definition>
+
+  <definition name="customer.*.*" template="/WEB-INF/view/inc/layout.jsp">
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="main" value="/WEB-INF/view/{1}/{2}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+    <put-attribute name="includeCSS" value="/css/{1}/{2}.css" />
+    <put-attribute name="includeJS" value="/js/{1}/{2}.js" />
+  </definition>
+
 </tiles-definitions>
