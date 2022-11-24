@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   MemberDaoMapper.xml
+   로그인 관련 DAO 쿼리 매핑
+   
+   작성자 : 이현수 yzhs.go@gmail.com
+   작성일 : 2022-11-23, 최종수정 2022-11-23
+-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springreservation.web.dao.MemberDao">
+    <resultMap type="com.springreservation.web.entity.Member" id="member">
+            <id column="id" property="id"/>
+            <result column="password" property="encodedPW" />
+            <result column="reg_date" property="regDate" />
+            <result column="admin_role" property="adminRole" />
+            <result column="disposable_yn" property="disposableYn" />
+    </resultMap>
+    <select id="findByLoginEmail" resultMap="member">
+       select * from Member
+       where
+        email = '${email}'
+    </select>
+    <select id="findByPhoneNumber" resultMap="member">
+       select * from Member
+       where
+        email = '${phone}',
+        disposable_yn = 1
+    </select>
+    <insert id="signup" parameterType="com.springreservation.web.entity.Member">
+       insert into member(
+          id, email, password, phone, name, admin_role, disposable_yn, reg_date
+       )
+       values(
+          member_seq.nextval,
+          '${email}',
+          '${encodedPW}',
+          '${phone}',
+          '${name}',
+          #{adminRole},
+          #{disposableYn},
+          sysdate
+       )
+    </insert>
+</mapper>

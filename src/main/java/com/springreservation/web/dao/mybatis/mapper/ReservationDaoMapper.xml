@@ -27,6 +27,6 @@
             AND TO_DATE('${enddate}', 'YYYYMMDD') 
         ORDER BY reservation_room asc,
             reservation_date asc,
-            reservation_time ASC
+            reservation_time ASC;
     </select>
 </mapper>
