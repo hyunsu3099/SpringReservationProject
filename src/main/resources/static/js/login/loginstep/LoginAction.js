@@ -1,6 +1,9 @@
 /**
+ * LoginAction.js
+ * 로그인 페이지에 이벤트 추가하는 역할
  * 
- * 
+ * 작성자 : 이현수 yzhs.go@gmail.com
+ * 작성일 : 2022-11-16, 최종수정 2022-11-25
  */
 import LoginValidation from "./LoginValidation.js";
 import LoginRequest from "./LoginRequest.js";
@@ -51,7 +54,7 @@ export default class LoginAction{
 
         //email/pw 검증 통과시 서버에 request
         if(this.loginValidation.status.isEmailValid &this.loginValidation.status.isPwValid)
-        this.loginRequest.login(emailOrPhone, pw, form_id);
+        this.loginRequest.login(emailOrPhone, pw);
     };
 
     initialize = (id) =>{
@@ -60,7 +63,5 @@ export default class LoginAction{
         this.loginRequest = new LoginRequest();
 
         this.loginValidation.initialize();
-
-        
     };
  }

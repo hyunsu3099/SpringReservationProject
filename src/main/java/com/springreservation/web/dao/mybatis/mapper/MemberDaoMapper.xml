@@ -4,41 +4,67 @@
    로그인 관련 DAO 쿼리 매핑
    
    작성자 : 이현수 yzhs.go@gmail.com
-   작성일 : 2022-11-23, 최종수정 2022-11-23
+   작성일 : 2022-11-23, 최종수정 2022-11-26
 -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springreservation.web.dao.MemberDao">
+
     <resultMap type="com.springreservation.web.entity.Member" id="member">
             <id column="id" property="id"/>
-            <result column="password" property="encodedPW" />
+            <result column="password" property="encodedPw" />
             <result column="reg_date" property="regDate" />
-            <result column="admin_role" property="adminRole" />
-            <result column="disposable_yn" property="disposableYn" />
     </resultMap>
+
     <select id="findByLoginEmail" resultMap="member">
-       select * from Member
-       where
+      SELECT 
+         id,
+         email,
+         name,
+         password,
+         reg_date,
+         (SELECT 
+            r. role_name as role
+         FROM 
+            role r 
+            where r.id = role_id)
+      FROM member
+      WHERE
         email = '${email}'
     </select>
     <select id="findByPhoneNumber" resultMap="member">
-       select * from Member
-       where
-        email = '${phone}',
-        disposable_yn = 1
+      SELECT 
+         id,
+         email,
+         name,
+         password,
+         reg_date,
+         (SELECT 
+            r. role_name as role
+         FROM 
+            role r 
+            where r.id = role_id)
+      FROM member
+      WHERE
+         phone = '${phone}'
     </select>
+
     <insert id="signup" parameterType="com.springreservation.web.entity.Member">
-       insert into member(
-          id, email, password, phone, name, admin_role, disposable_yn, reg_date
-       )
-       values(
-          member_seq.nextval,
-          '${email}',
-          '${encodedPW}',
-          '${phone}',
-          '${name}',
-          #{adminRole},
-          #{disposableYn},
-          sysdate
-       )
+
+      INSERT INTO member(
+         id, email, password, phone, name, role_id, reg_date
+      )
+      VALUES(
+         member_seq.nextval,
+         '${email}',
+         '${encodedPw}',
+         '${phone}',
+         '${name}',
+         (SELECT 
+            id 
+           FROM role 
+           WHERE role_name= '${role}'
+         ),
+         sysdate
+      )
     </insert>
 </mapper>

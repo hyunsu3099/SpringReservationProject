@@ -3,13 +3,11 @@
  * 회원정보에 대한 엔티티
  * 
  * 작성자 : 이현수 yzhs.go@gmail.com
- * 작성일 : 2022-11-23, 최종수정 2022-11-23
+ * 작성일 : 2022-11-23, 최종수정 2022-11-25
  */
 package com.springreservation.web.entity;
 
 import java.util.Date;
-
-import com.springreservation.web.model.Role;
 
 public class Member {
     private int id;
@@ -18,12 +16,11 @@ public class Member {
     private String phone; // "000-0000-0000 하이픈 포함 String"
 	private String encodedPw;
     private Date regDate;
-    private boolean disposableYn;
-    private Role role;
-    public Role getRole() {
+    private String role = "nonmember";
+    public String getRole() {
         return role;
     }
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
     public int getId() {
@@ -62,17 +59,10 @@ public class Member {
     public void setRegDate(Date regDate) {
         this.regDate = regDate;
     }
-    public boolean isDisposableYn() {
-        return disposableYn;
-    }
-    public void setDisposableYn(boolean disposableYn) {
-        this.disposableYn = disposableYn;
-        this.role = Role.NONMEMBER;
-    }
     @Override
     public String toString() {
         return "Member [id=" + id + ", email=" + email + ", name=" + name + ", phone=" + phone + ", encodedPw="
-                + encodedPw + ", regDate=" + regDate + ", role=" + role + ", disposableYn=" + disposableYn
+                + encodedPw + ", regDate=" + regDate + ", role=" + role
                 + "]";
     }
 }

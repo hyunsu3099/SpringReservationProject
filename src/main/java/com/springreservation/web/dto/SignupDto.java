@@ -18,14 +18,14 @@ public class SignupDto {
     private String email;
     private String phone;
     private String name;
-    private boolean disposibleYn = false;
+    private String role;
 
-    public boolean isDisposibleYn() {
-        return disposibleYn;
+    public String getRole() {
+        return role;
     }
 
-    public void setDisposibleYn(boolean disposibleYn) {
-        this.disposibleYn = disposibleYn;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public int getId() {
@@ -75,7 +75,14 @@ public class SignupDto {
         member.setEmail(email);
         member.setName(name);
         member.setPhone(phone);
-        member.setDisposableYn(disposibleYn);
+        member.setRole(role);
         return member;
     }
+
+    @Override
+    public String toString() {
+        return "SignupDto [id=" + id + ", pw=" + pw + ", email=" + email + ", phone=" + phone + ", name=" + name
+                + ", role=" + role + "]";
+    }
+    
 }

@@ -17,40 +17,40 @@ import com.springreservation.web.entity.Member;
 public class MemberServiceImp implements MemberService{
     
     @Autowired
-    private MemberDao loginDao;
+    private MemberDao memberDao;
 
     @Override
     public String findPwByLoginEmail(String email) {
-        return loginDao.findByLoginEmail(email).getEncodedPw();
+        return memberDao.findByLoginEmail(email).getEncodedPw();
     }
 
     @Override
     public String findPwByPhoneNumber(String phone) {
-        return loginDao.findByPhoneNumber(phone).getEncodedPw();
+        return memberDao.findByPhoneNumber(phone).getEncodedPw();
     }
 
     @Override
     public Member findInfoByLoginEmail(String email) {
-        return loginDao.findByLoginEmail(email);
+        return memberDao.findByLoginEmail(email);
     }
 
     @Override
     public Member findInfoByPhoneNumber(String phone) {
-        return loginDao.findByPhoneNumber(phone);
+        return memberDao.findByPhoneNumber(phone);
     }
 
     @Override
     public int signup(Member member) {
-        return loginDao.signup(member);
+        return memberDao.signup(member);
     }
 
     @Override
     public boolean emailExists(String email) {
-        return loginDao.findByLoginEmail(email).getId() != 0;
+        return memberDao.findByLoginEmail(email)!=null;
     }
 
     @Override
     public boolean phoneExists(String phone) {
-        return loginDao.findByPhoneNumber(phone).getId() != 0;
+        return memberDao.findByPhoneNumber(phone)!=null;
     }
 }

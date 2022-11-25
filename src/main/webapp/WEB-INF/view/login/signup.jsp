@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <main>
   <div class="signup_container">
@@ -9,7 +10,6 @@ pageEncoding="UTF-8"%>
     </div>
     
     <form class="form-floating">
-
       <div class="form-floating">
         <input type="email" class="form-control is-invalid" id="input_email" placeholder="name@example.com" value="test@example.com" aria-describedby="email_help"/>
         <label for="input_email">이메일주소</label>
