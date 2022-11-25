@@ -1,6 +1,9 @@
 /**
+ * LoginValidation.js
+ * 로그인 입력 정보 검증
  * 
- * 
+ * 작성자 : 이현수 yzhs.go@gmail.com
+ * 작성일 : 2022-11-16, 최종수정 2022-11-25
  */
 export default class LoginValidation{
 
@@ -60,7 +63,7 @@ export default class LoginValidation{
         //전화번호 형식 확인
         const phoneValid = (/.\d{2,3}-\d{3,5}-\d{4}/.test(value));
 
-        if(phoneValid) { this.status.isEmailValid=false; this.status.message.email="전화번호 형식을 확인해 주세요";return false;}
+        if(!phoneValid) { this.status.isEmailValid=false; this.status.message.email="전화번호 형식을 확인해 주세요 000-0000-0000";return false;}
 
         this.status.isEmailValid=true; this.status.message.email="";
         return true;

@@ -8,6 +8,7 @@
 package com.springreservation.web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.springreservation.web.dao.MemberDao;
@@ -16,6 +17,9 @@ import com.springreservation.web.entity.Member;
 @Service
 public class MemberServiceImp implements MemberService{
     
+    @Autowired
+    private BCryptPasswordEncoder bEncoder;
+
     @Autowired
     private MemberDao memberDao;
 
@@ -30,13 +34,33 @@ public class MemberServiceImp implements MemberService{
     }
 
     @Override
-    public Member findInfoByLoginEmail(String email) {
-        return memberDao.findByLoginEmail(email);
+    public Member loginByEmail(String email, String pw) {
+        //id 조회안될시 null 반환
+        Member member = memberDao.findByLoginEmail(email);
+        if(member == null) return null;
+        //pw 일치하면, member 반환
+        if(bEncoder.matches(pw, member.getEncodedPw()) ) return member;
+        //pw 일치하지 않으면, 빈 member 객체 반환
+        else{
+            member = new Member();
+            member.setPhone(email);
+            return member;
+        }
     }
 
     @Override
-    public Member findInfoByPhoneNumber(String phone) {
-        return memberDao.findByPhoneNumber(phone);
+    public Member loginByPhoneNumber(String phone , String pw) {
+        //id 조회안될시 null 반환
+        Member member = memberDao.findByPhoneNumber(phone);
+        if(member == null) return null;
+        //pw 일치하면, member 반환
+        if(bEncoder.matches(pw, member.getEncodedPw())) return member;
+        //pw 일치하지 않으면, 빈 member 객체 반환
+        else{
+            member = new Member();
+            member.setPhone(phone);
+            return member;
+        } 
     }
 
     @Override

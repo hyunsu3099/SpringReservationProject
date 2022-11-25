@@ -17,8 +17,8 @@ public interface MemberService {
     public String findPwByLoginEmail(String email);
     public String findPwByPhoneNumber(String phone);
 
-    public Member findInfoByLoginEmail(String email);
-    public Member findInfoByPhoneNumber(String phone);
+    public Member loginByEmail(String email, String pw);
+    public Member loginByPhoneNumber(String phone, String pw);
     public int signup(Member member);
 
 }
