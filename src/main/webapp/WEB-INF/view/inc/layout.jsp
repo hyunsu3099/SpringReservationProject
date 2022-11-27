@@ -3,11 +3,15 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--csrf 토큰 생성-->
+    <meta name="_csrf" th:content="${_csrf.token}">
+
     <title>Document</title>
 
     <!--메인 글씨체 import ()-->

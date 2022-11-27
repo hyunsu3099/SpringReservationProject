@@ -24,17 +24,18 @@ import com.springreservation.web.entity.Reservation;
 import com.springreservation.web.service.ReservationService;
 
 @Controller
+@RequestMapping({"/",""})
 public class HomeController{
 
     @Autowired
     ReservationService reservationService;
 
-    @RequestMapping("/index")
+    @RequestMapping("index")
     public String index(){
         return "index";
     }
 
-    @GetMapping("/reservation/status")
+    @GetMapping("reservation/status")
     public void reservationStatus(@RequestParam String firstday, HttpServletResponse response) {
 
         List<Reservation> list;
