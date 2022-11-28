@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -37,7 +38,8 @@ public class MemberLoginService implements UserDetailsService{
         String password = member.getEncodedPw();
 
         Collection<GrantedAuthority> collectors = new ArrayList<>();
-        collectors.add(() -> {return member.getRole(); });
+
+        collectors.add(new SimpleGrantedAuthority(member.getRole()));
 
         UserDetails user = new User(username, password, collectors);
         return user;

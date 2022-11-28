@@ -43,7 +43,7 @@ public class LoginController {
         //로그인 후 다시 돌아올 페이지 기억
         String referrer = request.getHeader("Referer");
 	    request.getSession().setAttribute("prevPage", referrer);
-        return "customer.login.login";
+        return "all.login.login";
     }
 
 
@@ -62,9 +62,11 @@ public class LoginController {
         //회원가입 후 다시 돌아올 페이지 기억
         String referrer = request.getHeader("Referer");
 	    request.getSession().setAttribute("prevPage", referrer);
-        return "customer.login.signup";
+        return "all.login.signup";
     }
 
+
+    //signup post 요청 (create)
     @PostMapping("/signup")
     public @ResponseBody Map signup(HttpServletRequest request, @RequestBody SignupDto signupDto){
 

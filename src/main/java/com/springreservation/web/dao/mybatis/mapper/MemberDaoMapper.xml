@@ -23,10 +23,10 @@
          password,
          reg_date,
          (SELECT 
-            r. role_name as role
+            role_name
          FROM 
-            role r 
-            where r.id = role_id)
+            role r
+            where r.id = role_id) AS role
       FROM member
       WHERE
         email = '${email}'
@@ -39,11 +39,11 @@
          password,
          reg_date,
          (SELECT 
-            r. role_name as role
+            role_name
          FROM 
-            role r 
-            where r.id = role_id)
-      FROM member
+            role r
+            where r.id = role_id) AS role
+      FROM member m
       WHERE
          phone = '${phone}'
     </select>
