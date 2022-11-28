@@ -3,7 +3,7 @@
  * 스프링 시큐리티 설정
  * 
  * 작성자 : 이현수 yzhs.go@gmail.com
- * 작성일 : 2022-11-23, 최종수정 2022-11-27
+ * 작성일 : 2022-11-23, 최종수정 2022-11-28
  */
 package com.springreservation.web.config;
 
@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -83,9 +82,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
         // 유저권한, admin 권한 설정
             .authorizeRequests()
-                .antMatchers("/user/**").authenticated()
-                .antMatchers("/admin/**").access("hasRole(ADMIN)")
-                .anyRequest().permitAll();
+                .antMatchers("/member/**","/member").authenticated()
+                .antMatchers("/admin/**","/admin").access("hasRole('ROLE_ADMIN')")
+                .anyRequest().permitAll()
+                .and()
+        //로그아웃 설정
+            .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login")
+                .deleteCookies("JSESSIONID","remember-me");
     }
 
     //사용하지 않음

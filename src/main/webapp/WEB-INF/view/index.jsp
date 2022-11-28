@@ -117,10 +117,10 @@
         </div>
 
         <script>
-            $(".index_menu_container>#item1 a").attr('href','/reservation/get');
-            $(".index_menu_container>#item2 a").attr('href','/map/get');
-            $(".index_menu_container>#item3 a").attr('href','/board/get');
-            $(".index_menu_container>#item4 a").attr('href','/introduction/get');
+            $(".index_menu_container>#item1 a").attr('href','/reservation');
+            $(".index_menu_container>#item2 a").attr('href','/map');
+            $(".index_menu_container>#item3 a").attr('href','/board');
+            $(".index_menu_container>#item4 a").attr('href','/introduction');
         </script>
 
     </div>    

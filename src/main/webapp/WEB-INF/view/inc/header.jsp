@@ -4,7 +4,10 @@
 
 <header>
     <div class="header_container">
-        <span><a href="#">로그인 </a></span>
-        <span><a href="#">회원가입</a></span>
+        <div style="text-align:center;"><span><a href="/">SpringReservationWeb</a></span></div>
+        <div class=".login_info">
+            <span><a href="/login">로그인 </a></span>
+            <span><a href="/signup">회원가입</a></span>
+        </div>
     </div>
 </header>
