@@ -82,8 +82,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
         // 유저권한, admin 권한 설정
             .authorizeRequests()
-                .antMatchers("/member/**","/member").authenticated()
-                .antMatchers("/admin/**","/admin").access("hasRole('ROLE_ADMIN')")
+                //임의로 권한 활성화 (test)
+                //.antMatchers("/member/**","/member").authenticated()
+                //.antMatchers("/admin/**","/admin").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().permitAll()
                 .and()
         //로그아웃 설정

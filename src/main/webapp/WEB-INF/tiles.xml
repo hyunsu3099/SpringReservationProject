@@ -19,6 +19,16 @@
     <put-attribute name="includeCSS" value="/css/{1}/{2}.css" />
     <put-attribute name="includeJS" value="/js/{1}/{2}.js" />
   </definition>
+  
+  <definition name="admin.head.*.*" template="/WEB-INF/view/admin/inc/layout_admin.jsp">
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="header2" value="/WEB-INF/view/admin/inc/header2.jsp" />
+    <put-attribute name="main" value="/WEB-INF/view/admin/{1}/{2}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+    <put-attribute name="includeCSS" value="/css/admin/{1}/{2}.css" />
+    <put-attribute name="includeJS" value="/js/admin/{1}/{2}.js" />
+    <put-attribute name="currentfilename" value="{1}" />
+  </definition>
 
   <definition name="admin.*.*" template="/WEB-INF/view/inc/layout.jsp">
     <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />

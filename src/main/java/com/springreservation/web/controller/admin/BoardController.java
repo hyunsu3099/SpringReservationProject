@@ -17,7 +17,7 @@ public class BoardController {
 
     @GetMapping("")
     public String list(){
-        return "admin.board.list";
+        return "admin.head.board.list";
     }
     
     @GetMapping("/detail")

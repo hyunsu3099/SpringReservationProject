@@ -1,0 +1,132 @@
+/*
+*
+*
+*/
+:root { 
+    --btn-graycolor: rgb(209, 209, 210); 
+    --table-border-gray :rgb(69,69,69);
+} 
+
+.board_list_container { 
+    font-family: 'Jonng Na Joh';
+    font-weight: 500;
+} 
+
+/* 검색 바*/
+.board_list_container .searchbar { width: 400px; margin: 10px auto 10px auto; display: flex; align-items: center; } 
+
+.board_list_container .form-select { width: 90px; height: 30px; display: inline-flex; align-items: center; padding: 0 0 0 10px; } 
+
+.board_list_container .form-select option { } 
+
+.board_list_container .input_search { width: 240px; height: 30px; margin-left: 40px; display: inline-flex; align-items: center; } 
+
+.board_list_container .btn-outline-dark { width: 60px; height: 30px; margin-left: 10px; background-color: var(--btn-graycolor); display: inline-flex; align-items: center; } 
+
+/*리스트 테이블*/
+.board_list_container .board_white_box {
+    background-color: white;
+    width: 70%;
+    min-width: 600px;
+    margin: 20px auto 10px auto;
+    padding: 30px 0 40px 0;
+}
+.board_list_container table {
+    width: 95%;
+    margin: 10px auto 10px auto;
+    padding: 0 0;
+}
+
+/*테이블 칼럼명*/
+.board_list_container table thead{
+    font-weight: 700;
+    border-bottom: var(--table-border-gray) 2px solid;
+}
+.board_list_container table thead td{
+    padding-top: auto;
+}
+
+/*테이블 바디*/
+/*테이블 바디 경계선 tr(2n)*/
+.board_list_container table tbody>tr:nth-child(2n+1) td{
+    height: 5rem; padding: auto 0;
+}
+.board_list_container .column_border{
+}
+.board_list_container .column_border> div:first-child{
+    width: 99.5%;
+    margin: 1px 0 0 0;
+    border-bottom: var(--table-border-gray) 2px solid;
+}
+.board_list_container .column_border> div:nth-child(2){
+    width: 99.5%;
+    background-color:rgb(222,223,223);
+    padding-top:5px;
+    margin-left:auto;
+}
+
+/*테이블 우측열 가운데정렬(체크박스)*/
+.board_list_container table>tbody>tr>td:nth-child(4){
+    font-size: 0.8rem;
+}
+.board_list_container table tr>td:nth-child(4)>div:nth-child(2){
+    padding-left: 2rem;
+}
+.board_list_container table tr>td:nth-child(n+5){
+    text-align: center;
+}
+
+/*테이블 아래*/
+.board_list_container .board_foot{
+    width: 95%;
+    margin: 10px auto 10px auto;
+    display: flex;
+}
+.board_list_container .board_foot a{ 
+    text-decoration: none;
+    color: var(--YIfontcolor);
+}
+
+/*테이블 아래> 리스트*/
+.board_list_container .board_foot>div:first-child{
+    width: 84%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.board_list_container .board_foot>div:first-child ul{
+    list-style: none;
+    margin:0 0; padding:0 0;
+}
+.board_list_container .board_foot>div:first-child ul>li{
+    float:left;
+    margin-left: 1rem;
+}
+.board_list_container .board_foot>div:first-child span:last-child{
+    margin-left: 1rem;
+}
+.selected_item{
+    font-weight: 700;
+}
+.selected_item >a{
+    pointer-events: none;
+	cursor: default;
+}
+
+
+
+.board_list_container .board_foot>div:nth-child(2){
+    width: 16%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.board_list_container .board_foot>div:nth-child(2) button{
+    display: inline;
+    width:3.2rem;
+    font-size: 0.6rem;
+    padding: 0 0;
+}
+.board_list_container .board_foot>div:nth-child(2) button:first-child{
+    margin-right: 0.5px;
+}

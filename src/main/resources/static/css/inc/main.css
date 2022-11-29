@@ -1,5 +1,25 @@
-:root { --background_beige: rgb(232,224,218); --YIfontcolor : #352F2D; --background_footer:rgb(175,170,166); } 
-* { font-family: 'IBM Plex Sans KR', sans-serif; color: var(--YIfontcolor); margin: 0 0; } 
+
+@font-face {
+    font-family: 'Jonng Na Joh';
+    font-weight: 500;
+    src: url('/css/inc/font/Joonggonara-L.woff') format('woff')
+}
+@font-face {
+    font-family: 'Jonng Na Joh';
+    font-weight: 700;
+    src: url('/css/inc/font/Joonggonara-M.woff') format('woff')
+}
+
+:root { 
+    --background_beige: rgb(232,224,218); 
+    --YIfontcolor : #352F2D; 
+    --background_footer:rgb(175,170,166); 
+}
+* { 
+    font-family: 'IBM Plex Sans KR', sans-serif; 
+    color: var(--YIfontcolor); 
+    margin: 0 0; 
+} 
 
 body { background-color: var(--background_beige);} 
 .hidden { display: none; } 

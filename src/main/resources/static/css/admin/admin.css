@@ -1,0 +1,59 @@
+:root{
+    --header2-bordergray : #828181;
+}
+/* header 메인 */
+.header2{
+    width: 70%;
+    min-width: 600px;
+    font-family: 'Jonng Na Joh';
+    font-weight: 500;
+    margin: 100px auto 20px auto;
+}
+
+.header2  a{
+    text-decoration: none;
+    color: var(--YIfontcolor);
+}
+
+/* header 목록 */
+.header2 .admin_list{
+    margin: 10px auto 10px auto;
+}
+.header2 .admin_list table{
+    margin: 0 auto 1.5rem auto;
+}
+.header2 .admin_list table td{
+    padding: 1px 1rem;
+    border-left: 1.2px solid var( --header2-bordergray);
+}
+.header2 .admin_list table td:first-child{
+    border: none;
+}
+.header2 .admin_list .selected_item{
+    font-weight: 700;
+}
+.header2 .admin_list .selected_item >a{
+}
+
+/* header 배너 */
+.header2 .banner{
+    width: 100%;
+    height:fit-content;
+    background-color: #EDF1F3;
+    border-top: 1.5px solid var( --header2-bordergray);
+    border-bottom: 1.5px solid var( --header2-bordergray);
+}
+.header2 .banner>div{
+    height:2rem;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header2 .banner>div:nth-child(3){
+    font-size: 0.75rem;
+}
+.header2 .banner>div:nth-child(3)>div{
+    padding-left: 5rem;
+}
