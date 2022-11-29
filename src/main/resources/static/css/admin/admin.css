@@ -1,6 +1,7 @@
 :root{
     --header2-bordergray : #828181;
 }
+/* header 메인 */
 .header2{
     width: 70%;
     min-width: 600px;
@@ -14,7 +15,7 @@
     color: var(--YIfontcolor);
 }
 
-/* head 목록 */
+/* header 목록 */
 .header2 .admin_list{
     margin: 10px auto 10px auto;
 }
@@ -34,7 +35,7 @@
 .header2 .admin_list .selected_item >a{
 }
 
-/* 배너 */
+/* header 배너 */
 .header2 .banner{
     width: 100%;
     height:fit-content;
@@ -49,8 +50,7 @@
     align-items: center;
     justify-content: center;
 }
-.header2 .banner>div:nth-child(2){
-}
+
 .header2 .banner>div:nth-child(3){
     font-size: 0.75rem;
 }
