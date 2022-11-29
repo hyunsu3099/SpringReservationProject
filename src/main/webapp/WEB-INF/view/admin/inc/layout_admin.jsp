@@ -12,8 +12,6 @@
     <!--csrf 토큰 생성-->
     <meta name="_csrf" th:content="${_csrf.token}">
 
-    <title>Document</title>
-
     <!--메인 글씨체 import ()-->
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -27,15 +25,33 @@
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js"></script>
     <!--로컬 css 파일-->
     <link rel="stylesheet" href="/css/inc/main.css">
+    <link rel="stylesheet" href="/css/admin/admin.css">
     <link rel="stylesheet" href='<tiles:getAsString name="includeCSS" />'>
     <!--로컬 js 파일-->
     <script type="text/javascript" src="/js/inc/main.js"></script>
     <script type="module" src='<tiles:getAsString name="includeJS" />'></script>
+
+    <title>SpringReservationWeb</title>
 </head>
 <body>
 
+    <script>
+        const ListName = {
+            'board' : '공지사항 관리페이지',
+            'introduction' : '소개 관리페이지',
+            'map' : '오시는 길 관리페이지',
+            'reservation' : '예약 관리페이지',
+            'member' : '회원 관리페이지',
+            'db' : 'db 관리페이지'
+        }
+        const fileid = '<tiles:getAsString name="currentfilename" />';
+        const currentViewName = ListName[fileid];
+    </script>
+
     <!-- header -->
     <tiles:insertAttribute name="header" />
+    <!-- header -->
+    <tiles:insertAttribute name="header2" />
 	<!-- maintb -->
 	<tiles:insertAttribute name="main" />
 	<!-- footer -->
