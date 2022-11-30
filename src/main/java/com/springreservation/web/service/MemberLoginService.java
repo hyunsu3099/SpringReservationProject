@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.springreservation.web.dao.MemberDao;
 import com.springreservation.web.entity.Member;
+import com.springreservation.web.entity.User;
 
 @Service
 public class MemberLoginService implements UserDetailsService{
@@ -36,12 +36,13 @@ public class MemberLoginService implements UserDetailsService{
         if(member == null || member.getId() ==0) throw new UsernameNotFoundException(username) ;
 
         String password = member.getEncodedPw();
+        String name = member.getName();
 
         Collection<GrantedAuthority> collectors = new ArrayList<>();
 
         collectors.add(new SimpleGrantedAuthority(member.getRole()));
 
-        UserDetails user = new User(username, password, collectors);
+        User user = new User(username, password, name, collectors);
         return user;
     }
     

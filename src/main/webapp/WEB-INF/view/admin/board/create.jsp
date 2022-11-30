@@ -22,12 +22,12 @@
                 <div class="border_top_gray"></div>
                 <div>
                     <div>
-                        <div>작성자: admin</div>
+                        <div>작성자: <span id="writer_name">admin</span></div>
                     </div>
                     <div>
                         게시상태 :
                         <span>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <input class="form-check-input" type="checkbox" id="publish_chk" checked>
                         </span>
                     </div>
                 </div>
@@ -36,12 +36,11 @@
             <div class="post_content">
                 <div>
                     <label for="post_content" class="form-label">글 내용:</label>
-                    <textarea class="form-control" id="post_content" rows="15">
-                    </textarea>
+                    <textarea class="form-control" id="post_content" rows="15"></textarea>
                 </div>
                 <div>
                     <button type="button" class="btn btn-outline-dark">돌아가기</button>
-                    <button type="button" class="btn btn-outline-dark">업로드</button>
+                    <button type="button" class="btn btn-outline-dark" id="btn_upload">업로드</button>
                 </div>
             </div>
             <div class="post_foot">
