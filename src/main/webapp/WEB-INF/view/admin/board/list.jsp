@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <main>
@@ -37,84 +38,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>9</td>
-                        <td>예약안내</td>
-                        <td>admin</td>
-                        <td><div>2022-11-22</div><div>2022-11-22</div></td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        </td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        </td>
-                    </tr>
-                    <tr><td colspan="6"><div class= "column_border"><div></div><div></div></div></tr>
-                    <tr>
-                        <td>9</td>
-                        <td>예약안내</td>
-                        <td>admin</td>
-                        <td><div>2022-11-22</div><div>2022-11-22</div></td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        </td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        </td>
-                    </tr>
-                    <tr><td colspan="6"><div class= "column_border"><div></div><div></div></div></tr>
-                    <tr>
-                        <td>9</td>
-                        <td>예약안내</td>
-                        <td>admin</td>
-                        <td><div>2022-11-22</div><div>2022-11-22</div></td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        </td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        </td>
-                    </tr>
-                    <tr><td colspan="6"><div class= "column_border"><div></div><div></div></div></tr>
-                    <tr>
-                        <td>9</td>
-                        <td>예약안내</td>
-                        <td>admin</td>
-                        <td><div>2022-11-22</div><div>2022-11-22</div></td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        </td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        </td>
-                    </tr>
-                    <tr><td colspan="6"><div class= "column_border"><div></div><div></div></div></tr>
-                    <tr>
-                        <td>9</td>
-                        <td>예약안내</td>
-                        <td>admin</td>
-                        <td><div>2022-11-22</div><div>2022-11-22</div></td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        </td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        </td>
-                    </tr>
-                    <tr><td colspan="6"><div class= "column_border"><div></div><div></div></div></tr>
-                    <tr>
-                        <td>9</td>
-                        <td>예약안내</td>
-                        <td>admin</td>
-                        <td><div>2022-11-22</div><div>2022-11-22</div></td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        </td>
-                        <td>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        </td>
-                    </tr>
-                    <tr><td colspan="6"><div class= "column_border"><div></div><div></div></div></tr>
+                    <c:forEach var="n" items="${list}">
+                        <tr>
+                            <td class="post_num">${n.id}</td>
+                            <td><a href="/admin/board/${n.id}">${n.title}</a></td>
+                            <td>${n.userName}</td>
+                            <td><div>${n.regDate}</div><div>${n.editDate}</div></td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${n.publish==0}">
+                                        <input class="form-check-input" type="checkbox" id="publish_${n.id}">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <input class="form-check-input" type="checkbox" id="publish_${n.id}" checked>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td><input class="form-check-input" type="checkbox" id="delete_${n.id}"></td>
+                        </tr>
+                        <tr><td colspan="6"><div class= "column_border">
+                            <div></div><div></div>
+                        </div></tr>
+                    </c:forEach>
                 </tbody>
             </table>
 
@@ -123,21 +68,23 @@
                     <span><a href="">&lt;</a> </span>
                     <span>
                         <ul>
-                            <li class="selected_item"><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="">6</a></li>
-                            <li><a href="">7</a></li>
-                            <li><a href="">8</a></li>
+                            <c:forEach var="n" items="${pages}">
+                                <c:choose>
+                                    <c:when test="${n==currentpage}">
+                                        <li class="selected_item"><a href="/admin/board?page=${n}">${n}</a></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a href="/admin/board?page=${n}">${n}</a></li>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
                         </ul>
                     </span>
                     <span><a href="">&gt;</a></span>
                 </div>
                 <div>
-                    <button class="btn btn-primary" type="button">업데이트</button>
-                    <button class="btn btn-secondary" type="button">선택삭제</button>
+                    <button class="btn btn-primary" type="button" id="btn_update">업데이트</button>
+                    <button class="btn btn-secondary" type="button" id="btn_delete">선택삭제</button>
                 </div>
             </div>
         </div>
