@@ -71,6 +71,8 @@ const getUserName = () => {
             let data = JSON.parse(response);
             data = data.result[0];
             name = data.name;
+
+            $(location).attr("href","/admin/board");
         }   
     });
     return name;

@@ -48,6 +48,8 @@ const putFcn = () =>{
         headers: {'X-CSRF-TOKEN': $("meta[name='_csrf']").attr("th:content")},
         success: (response)=>{
             console.log(response);
+
+            $(location).attr("href","/admin/board");
         }   
     });
     
@@ -66,6 +68,8 @@ const deleteFcn = () =>{
         },
         success: (response)=>{
             console.log(response);
+
+            $(location).attr("href","/admin/board");
         }   
     });
 }
