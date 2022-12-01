@@ -1,6 +1,6 @@
 /**
- * create.js
- * 관리자계정의 게시판 글쓰기페이지 create 요청처리
+ * update.js
+ * 관리자계정의 게시판 업데이트페이지 요청처리
  * 
  * 작성자 : 이현수 yzhs.go@gmail.com
  * 작성일 : 2022-11-29, 최종수정 2022-12-2
@@ -9,12 +9,13 @@
 /**
  * dom id 객체 정리
  */
-const id = {
+ const id = {
+    btn_update: 'btn_update',
+    btn_delete: 'btn_delete',
+    btn_back: 'btn_back',
+    post_id:'btn_update',
     form_title: 'post_title',
     form_content: 'post_content',
-    writer_name: 'writer_name',
-    btn_upload: 'btn_upload',
-    btn_back: 'btn_back',
     publish: 'publish_chk'
 };
 
@@ -22,29 +23,24 @@ const id = {
  * 이벤트 핸들러 부여 및 초기값 세팅
  */
 $('document').ready(function(){
-    $('#'+id.btn_upload).on('click',submit);
-    $('#'+id.writer_name).empty();
-    $('#'+id.writer_name).text(getUserName());
+    $('#'+id.btn_update).on('click',putFcn);
+    $('#'+id.btn_delete).on('click',deleteFcn);
     $('#'+id.btn_back).on('click',backHandler);
 });
 
-
-/**
- * 업로드 버튼 누를 시, post 요청 ajax 보내기
- */
-const submit = ()=>{
+const putFcn = () =>{
+    const id = $('#'+this.id.post_id).text();
+    
     let publish_val = 0;
     if( $('#'+id.publish).is(':checked')) publish_val = 1; //체크박스 값 가져오기
     const data = {
-        userName: $('#'+id.writer_name).text(), //유저이름
         title: $('#'+id.form_title).val(),      //게시글제목
         content: $('#'+id.form_content).val(),  //게시글내용
-        publish: publish_val                    //게시상태
     };
 
     $.ajax({
-        type: 'POST',
-        url: "/admin/board",
+        type: 'PUT',
+        url: "/admin/board/"+id,
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify(data),
         cache : false,
@@ -54,28 +50,25 @@ const submit = ()=>{
             console.log(response);
         }   
     });
-} 
+    
+}
+const deleteFcn = () =>{
 
-/**
- * 서버에, 로그인되어있는 작성자이름 요청하기
- */
-const getUserName = () => {
-    let name="ananymous"; // 초기 작성자이름
+    const id = $('#'+this.id.post_id).text();
 
     $.ajax({
-        type: 'GET',
-        url: "/auth/name",
-        headers: {'X-CSRF-TOKEN': $("meta[name='_csrf']").attr("th:content")},
+        type: 'DELETE',
+        url: "/admin/board/"+id,
         async: false,
+        //meta태그의 숨겨진 csrf 토큰을 가져옴
+        headers: {
+          'X-CSRF-TOKEN': $("meta[name='_csrf']").attr("th:content")
+        },
         success: (response)=>{
-            let data = JSON.parse(response);
-            data = data.result[0];
-            name = data.name;
+            console.log(response);
         }   
     });
-    return name;
 }
-
 const backHandler = () =>{
     $(location).attr("href","/admin/board");
 }

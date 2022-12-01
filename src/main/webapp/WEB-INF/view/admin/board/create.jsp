@@ -39,7 +39,7 @@
                     <textarea class="form-control" id="post_content" rows="15"></textarea>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-outline-dark">돌아가기</button>
+                    <button type="button" class="btn btn-outline-dark" id="btn_back">돌아가기</button>
                     <button type="button" class="btn btn-outline-dark" id="btn_upload">업로드</button>
                 </div>
             </div>

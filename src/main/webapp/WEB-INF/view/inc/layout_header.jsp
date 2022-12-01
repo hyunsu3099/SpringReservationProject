@@ -32,9 +32,21 @@
     <title>SpringReservationWeb</title>
 </head>
 <body>
+    <script>
+        const listName = {
+            'board' : '공지사항',
+            'introduction' : '서비스 소개',
+            'map' : '오시는 길',
+            'reservation' : '예약하기'
+        }
+        const fieldid = '<tiles:getAsString name="currentfilename" />';
+        const currentViewName = listName[fieldid];
+    </script>
 
     <!-- header -->
     <tiles:insertAttribute name="header" />
+    <!-- header -->
+    <tiles:insertAttribute name="header2" />
 	<!-- maintb -->
 	<tiles:insertAttribute name="main" />
 	<!-- footer -->

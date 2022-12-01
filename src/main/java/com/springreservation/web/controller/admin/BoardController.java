@@ -3,7 +3,7 @@
  * 관리자계정의 게시판 요청처리
  * 
  * 작성자 : 이현수 yzhs.go@gmail.com
- * 작성일 : 2022-11-28, 최종수정 2022-12-1
+ * 작성일 : 2022-11-28, 최종수정 2022-12-2
  */
 package com.springreservation.web.controller.admin;
 
@@ -39,8 +39,7 @@ public class BoardController {
     BoardService boardService;
 
     //admin 일경우만 가능한 쿼리의경우 isAdmin 파라미터 포함하여 요청
-    private int isAdmin=1;
-
+    private final int isAdmin=1;
 
     //List 가져오기 Get
     //request 파라미터 : {page: 요청 페이지, key: 검색필드, val: 검색어}
@@ -95,7 +94,7 @@ public class BoardController {
 
         BoardDto board = boardService.get(id, isAdmin);
         BoardDto prev = boardService.getPrev(id, isAdmin);
-        BoardDto next = boardService.getPrev(id, isAdmin);
+        BoardDto next = boardService.getNext(id, isAdmin);
         
         ModelAndView model = new ModelAndView();
         model.addObject("board", board);
@@ -121,6 +120,7 @@ public class BoardController {
     @ResponseBody
     @PutMapping("/{id}")
     public String update(@PathVariable int id, @RequestBody BoardDto boardDto){
+        boardDto.setId(id);
         int result = boardService.update(boardDto.getBoard(),isAdmin);
         return "{ \"result\" : [ {\"result\": \" "+ result + "\"} ] }";
     }

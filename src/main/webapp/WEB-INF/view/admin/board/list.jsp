@@ -83,8 +83,13 @@
                     <span><a href="">&gt;</a></span>
                 </div>
                 <div>
-                    <button class="btn btn-primary" type="button" id="btn_update">업데이트</button>
-                    <button class="btn btn-secondary" type="button" id="btn_delete">선택삭제</button>
+                    <div>
+                        <button class="btn btn-primary" type="button" id="btn_update">업데이트</button>
+                        <button class="btn btn-secondary" type="button" id="btn_delete">선택삭제</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="button" id="btn_create">새글작성</button>
+                    </div>
                 </div>
             </div>
         </div>

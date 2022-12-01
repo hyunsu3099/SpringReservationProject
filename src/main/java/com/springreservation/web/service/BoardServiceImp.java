@@ -3,7 +3,7 @@
  * 게시판에 대한 데이터요청 서비스 구현체
  * 
  * 작성자 : 이현수 yzhs.go@gmail.com
- * 작성일 : 2022-11-29, 최종수정 2022-11-30
+ * 작성일 : 2022-11-29, 최종수정 2022-12-2
  */
 package com.springreservation.web.service;
 
@@ -42,7 +42,7 @@ public class BoardServiceImp implements BoardService {
 
         return result;
     }
-    public List<BoardDto> getList(int page, String key, String val){ return getList(page, key, val,0);}//관리자 뷰에서 접근하지 않았을때
+    public List<BoardDto> getList(int page, String key, String val){ return getList(page, key, val,0);} //관리자 뷰에서 접근하지 않았을때
 
     //detail 포스트 보기
     //id: board 테이블 id
@@ -50,7 +50,7 @@ public class BoardServiceImp implements BoardService {
     @Override
     public BoardDto get(int id, int isAdmin) {
         Board board = boardDao.get(id, isAdmin);
-        if(board==null)board=new Board();
+        if(board==null)return new BoardDto();
         return board.getBoardDto();
     }
     public BoardDto get(int id){return get(id, 0);}//관리자 뷰에서 접근하지 않았을때
@@ -62,7 +62,7 @@ public class BoardServiceImp implements BoardService {
     @Override
     public BoardDto getPrev(int id, int isAdmin) {
         Board board = boardDao.getPrev(id, isAdmin);
-        if(board==null)board=new Board();
+        if(board==null)return new BoardDto();
         return board.getBoardDto();
     }
     public BoardDto getPrev(int id){return getPrev(id, 0);}//관리자 뷰에서 접근하지 않았을때
@@ -74,7 +74,7 @@ public class BoardServiceImp implements BoardService {
     @Override
     public BoardDto getNext(int id, int isAdmin) {
         Board board = boardDao.getNext(id, isAdmin);
-        if(board==null)board=new Board();
+        if(board==null)return new BoardDto();
         return board.getBoardDto();
     }
     public BoardDto getNext(int id){return getNext(id, 0);}//관리자 뷰에서 접근하지 않았을때

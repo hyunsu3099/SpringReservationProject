@@ -35,7 +35,7 @@
 </head>
 <body>
     <script>
-        const ListName = {
+        const listName = {
             'index' : '관리자 페이지',
             'board' : '공지사항 관리페이지',
             'introduction' : '소개 관리페이지',
@@ -44,8 +44,8 @@
             'member' : '회원 관리페이지',
             'db' : 'db 관리페이지'
         }
-        const fileid = '<tiles:getAsString name="currentfilename" />';
-        const currentViewName = ListName[fileid];
+        const fieldid = '<tiles:getAsString name="currentfilename" />';
+        const currentViewName = listName[fieldid];
     </script>
 
     <!-- header -->
