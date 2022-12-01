@@ -9,9 +9,9 @@
             <span></span>
         </div>
         <div>
-            <span><a href="#">email</a> · </span>
-            <span><a href="https://github.com/hyunsu3099/SpringReservationProject">github</a> · </span>
-            <span><a href="https://yzhs-ptpt.tistory.com">blog</a></span>
+            <span><a href="#" target="_blank">email</a> · </span>
+            <span><a href="https://github.com/hyunsu3099/SpringReservationProject" target="_blank">github</a> · </span>
+            <span><a href="https://yzhs-ptpt.tistory.com" target="_blank">blog</a></span>
         </div>
     </div>
 </footer>

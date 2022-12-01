@@ -8,7 +8,7 @@
         <div class="index_signature_logo"><p></p></div>
         <!--웹페이지 설명-->
         <div class="index_desc">
-            <div class="index_desc_en"><span> web page was built using the Spring Framework</span></div>
+            <div class="index_desc_en"><span>This web page was built using the Spring Framework</span></div>
             <div class="index_desc_en"><span>It was created to implement a reservation service</span></div>
             <div class="index_desc_kr"><span>이 웹 페이지는 스프링 프레임워크를 이용해</span></div>
             <div class="index_desc_kr"><span>예약 서비스를 구현하기 위해 만들어 졌습니다</span></div>
@@ -83,7 +83,9 @@
         <!--메뉴 내용들-->
         <div class="index_menu_container">
             <div class="index_menu_item" id="item1">
-                <div style="background-color:#ECC8D3;"><a></a></div>
+                <div class="white_box">
+                    <div style="background-color:#ECC8D3;"><a><img src="/images/menues/reservation.png"></a></div>
+                </div>
                 <div>
                     <div><a>예약하기</a></div>
                     <div><a>Reservation</a></div>
@@ -91,7 +93,9 @@
                 </div>
             </div>
             <div class="index_menu_item" id="item2">
-                <div style="background-color:#E9DDAE;"><a></a></div>
+                <div class="white_box">
+                    <div style="background-color:#E9DDAE;"><a><img src="/images/menues/map.png"></a></div>
+                </div>
                 <div>
                     <div><a>오시는길</a></div>
                     <div><a>Map</a></div>
@@ -99,7 +103,9 @@
                 </div>
             </div>
             <div class="index_menu_item"id="item3">
-                <div style="background-color:#ECC8D3;"><a></a></div>
+                <div class="white_box">
+                    <div style="background-color:#ECC8D3;"> <a><img src="/images/menues/board.png"></a> </div>
+                </div>
                 <div>
                     <div><a>공지사항</a></div>
                     <div><a>Board</a></div>
@@ -107,7 +113,11 @@
                 </div>
             </div>
             <div class="index_menu_item" id="item4">
-                <div style="background-color:#ECC8D3;"><a></a></div>
+                <div class="white_box">
+                    <div style="background-color:#ECC8D3;">
+                        <a><img src="/images/menues/introduction.png"></a>
+                    </div>
+                </div>
                 <div>
                     <div><a>서비스소개</a></div>
                     <div><a>Service</a></div>

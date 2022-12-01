@@ -11,9 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--csrf 토큰 생성-->
     <meta name="_csrf" th:content="${_csrf.token}">
-
-    <title>Document</title>
-
     <!--메인 글씨체 import ()-->
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -31,6 +28,8 @@
     <!--로컬 js 파일-->
     <script type="text/javascript" src="/js/inc/main.js"></script>
     <script type="module" src='<tiles:getAsString name="includeJS" />'></script>
+
+    <title>SpringReservationWeb</title>
 </head>
 <body>
 
