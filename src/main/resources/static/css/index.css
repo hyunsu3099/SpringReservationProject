@@ -1,186 +1,107 @@
-@font-face {
-    font-family: "YiSunShinB";
-    font-weight: 500;
-    src: url("/css/inc/fonts/YiSoonShinB.woff") format("woff");
-  }
 
-:root{
-    --YIfontcolor : #352F2D;
+@font-face { font-family: "YiSunShinB"; font-weight: 500; src: url("/css/inc/fonts/YiSoonShinB.woff") format("woff") } 
+
+:root { 
     --table_tab_color: rgb(199,200,200);
     --green_circle: rgb(106,183,47);
     --yellow_circle: rgb(241,173,51);
-    --grey_circle: rgb(141,141,141);
-}
-
+    --grey_circle: rgb(141,141,141); 
+} 
 
 /*index 전체 container*/
-.index_container{}
-.index_container a{text-decoration: none; color:var(--YIfontcolor);}
+.index_container { } 
 
 /*로고 background image*/
-.index_container .index_signature_logo p{
-    width: 102px;
-    height: 74px;
-    background-image: url("/images/logo/signature_yzhs-ptpt@1.5x.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 25px auto 50px auto;
-}
+.index_container .index_signature_logo p { width: 102px; height: 74px; background-image: url("/images/logo/signature_yzhs-ptpt@1.5x.png"); background-position: center; background-repeat: no-repeat; margin: 40px auto 20px auto; } 
 
 /*이순신체 설명부분*/
-.index_container .index_desc *{
-    font-family: 'YiSunShinB';
-    font-size: 19pt;
-    color: var(--YIfontcolor);
-}
-.index_container .index_desc div{margin: 0 auto 8px auto;}
-.index_container .index_desc div:nth-child(2){ margin-bottom:15px;}
-.index_container .index_desc_kr{width:450px;}
-.index_container .index_desc_en{width:490px;}
-.index_container .index_desc span{display: justify;}
+.index_container .index_desc * { font-family: 'YiSunShinB'; font-size: 18pt; color: var(--YIfontcolor); } 
+.index_container .index_desc div { margin: 0 auto 8px auto; } 
+.index_container .index_desc div:nth-child(2) { margin-bottom:15px; } 
+.index_container .index_desc_kr { width:450px; } 
+.index_container .index_desc_en { width:490px; } 
+.index_container .index_desc span { display: justify; } 
 
 /*표, 표legend, 표레이블 합친 컨테이너*/
-.index_table_container{
-}
+.index_container .index_table_container { } 
 /*표 child: (칼럼표+내용표)*/
-.index_table_container  .index_table_tables{
-    width : 450px;
-	margin: 50px auto 20px auto;
-    display: flex;
-	flex-direction: row;
-	text-align: center;
-    position:relative;
-}
-.index_table_container .index_table_tables >div:first-child{width: 50px;height: 185px; }
-.index_table_container .index_table_tables >div:nth-child(2){width: 400px;height: 185px; }
+.index_container .index_table_container .index_table_tables { width : 460px;margin: 50px auto 20px auto; display: flex;flex-direction: row;text-align: center; position:relative; left :-2rem; } 
+.index_container .index_table_container .index_table_tables >div:first-child { width: 50px; height: 200px; } 
+.index_container .index_table_container .index_table_tables >div:nth-child(2) { width: 400px; height: 200px; } 
 /*칼럼표*/
-.index_table_container .index_table_tables>div p{height: 25px;}
-.index_table_container .index_table_tables>div .table_rowname{
-    height: 160px;
-    width:50px;
-    text-align: center;
-    border-right: solid 1px var(--YIfontcolor);
-}
+.index_container .index_table_container .index_table_tables>div p { height: 25px; } 
+.index_container .index_table_container .index_table_tables>div .table_rowname { height: 160px; width:50px; text-align: center; border-right: solid 1px var(--YIfontcolor); } 
 
 
 /*표 리스트*/
-.index_table_container ul, .index_table_container li{list-style: none;}
-.index_table_items{
-    height:100%; 
-    width: 100%;
-    display: block;
-    white-space: nowrap;
-    overflow:hidden;
-    border-collapse: collapse;
-    padding-left: 0;
-}
-.index_table_container .index_table_item{
-    width:100%;
-    display:inline-block;
-	transition: all .35s;
-}
+.index_container .index_table_container ul, .index_table_container li { list-style: none; padding: 0 0; } 
+.index_container .index_table_items { height:100%; width: 100%; display: inline-block; white-space: nowrap; overflow:hidden; border-collapse: collapse; } 
+.index_container .index_table_container .index_table_item { width:100%; display:inline-block;transition: all .35s; } 
 /*표: 6일 표시 및 이전다음 요청*/
-.index_table_container .index_table_item>p { background-color: var(--table_tab_color);border-top-left-radius: 8px;border-top-right-radius: 8px;}
-.index_table_container .index_table_item>p>.left{float: left;}
-.index_table_container .index_table_item>p>.right{float: right;}
+.index_container .index_table_container .index_table_item>p { width: 99%; background-color: var(--table_tab_color); border-top-left-radius: 8px; border-top-right-radius: 8px; } 
+.index_container .index_table_container .index_table_item>p>.left { float: left; } 
+.index_container .index_table_container .index_table_item>p>.right { float: right; } 
 
 /*표: 예약현황 표*/
-.index_table_container .table_reservation{width:100%; height:160px;}
-.index_table_container .table_reservation thead{font-size: 0.9rem;}
-.index_table_container .table_reservation tbody tr td { text-align: center;}
+.index_container .index_table_container .table_reservation { width:99%; height:160px; } 
+.index_container .index_table_container .table_reservation thead { font-size: 0.9rem; } 
+.index_container .index_table_container .table_reservation tbody tr td { text-align: center; } 
 
 /*표: legend*/
-.index_table_container .index_table_legend{
-    width : 520px;
-    margin: 5px auto 20px auto;
-    font-size: 0.8rem;
-    text-align: end;
-}
-.index_table_container .index_table_legend div{ margin-left: 30px;}
+.index_container .index_table_container .index_table_legend { width : 520px; margin: 0 auto 20px auto; font-size: 0.8rem; text-align: end; } 
+.index_container .index_table_container .index_table_legend div { margin-left: 30px; } 
 
 /*표: label*/
-.index_table_container .index_table_label{
-    width : 300px; margin: 5px auto 20px auto;
-    font-size: 1.3rem; font-stretch: ultra-condensed;
-}
+.index_container .index_table_container .index_table_label { width : 300px; margin: 5px auto 20px auto; font-size: 1.3rem; font-stretch: ultra-condensed; } 
 /*첫번째 레이블 굵게, 두번째레이블 간격좁게*/
-.index_table_container .index_table_label >div:nth-child(1){font-weight: 600;}
-.index_table_container .index_table_label >div:nth-child(2){
-    position: relative; bottom: 10px;
-}
+.index_container .index_table_container .index_table_label >div:nth-child(1) { font-weight: 600; } 
+.index_container .index_table_container .index_table_label >div:nth-child(2) { position: relative; bottom: 10px; } 
 /*세번째줄 레이블 크기작게*/
-.index_table_container .index_table_label > .label_desc{
-    font-size: 1rem; position: relative; bottom: 15px;
-}
+.index_container .index_table_container .index_table_label > .label_desc { font-size: 1rem; position: relative; bottom: 15px; } 
 
 /*표 끝*/
 
 
 
 
-
 /*박스 메뉴 컨테이너*/
-.index_menu_container{
-    width : 90%;
-    max-width: 800px;
-    margin: 120px auto 200px auto;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: left;
+.index_container .index_menu_container { 
+ width : 85%; max-width: 52rem; margin: 120px auto 100px auto;
+ display:flex; flex-wrap: wrap; justify-content: center; align-items: center; } 
+
+.index_container .index_menu_container .index_menu_item { width: 22rem; height: 24rem; 
+    display: inline-block; margin:1rem 2rem 4rem 2rem;
+    border: solid var(--YIfontcolor) 1px; border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.25), 0 0.2rem 0.2rem rgba(0,0,0,0.22);
+}
+.index_container .index_menu_container .index_menu_item:hover{
+    box-shadow: 0 2rem 4rem rgba(0,0,0,0.25), 0 1rem 1rem rgba(0,0,0,0.22);
 }
 
-.index_menu_container .index_menu_item{
-    width:50%;
-    margin: 40px 0 70px 0;
-    display: inline-block;
-}
+
 /*박스 메뉴 배경지정*/
-.index_menu_container>.index_menu_item>div:first-child{
-    width:90%;
-    aspect-ratio: 4/3;
-}
-.index_menu_container>.index_menu_item>div:first-child > a{
-    padding-right: 100%;
-    padding-bottom: 67%;
-    background-position: center;
-    background-size: cover;
-}
-.index_menu_container #item1>div:first-child>a{
-    background-image: url('/images/menues/reservation.png');
-}
-.index_menu_container #item2>div:first-child> a{
-    background-image: url('/images/menues/map.png');
-}
-.index_menu_container #item3>div:first-child> a{
-    background-image: url('/images/menues/board.png');
-}
-.index_menu_container #item4>div:first-child> a{
-    
-}
+.index_container .index_menu_item .white_box {  margin: 0 auto; width: 94%; height: 14rem; padding: 0.4rem;}
+.index_container .index_menu_item .white_box>div{width: 100%; height:100%; overflow: hidden;}
+.index_container .index_menu_item img { 
+} 
 
 /*박스 메뉴 레이블*/
-.index_menu_container>.index_menu_item>div:nth-child(2){
-    width : 300px;
-    font-size: 1rem;
-    font-stretch: ultra-condensed;
-}
+.index_container .index_menu_container>.index_menu_item>div:nth-child(2) {
+    width : 300px; margin: 1rem auto 20px auto; font-size: 1.3rem; font-stretch: ultra-condensed;
+} 
 /*박스 메뉴 레이블 첫번째 굵게, 크게*/
-.index_menu_container>.index_menu_item>div:nth-child(2)>div:first-child{
-    font-weight: 600; font-size: 1.2rem;
-}
-
-
+.index_container .index_menu_container>.index_menu_item>div:nth-child(2)>div:first-child { font-weight: 600; font-size: 1.2rem; } 
+.index_container .index_menu_container>.index_menu_item>div:nth-child(2)>div:nth-child(2) { position: relative; bottom: 10px; } 
+.index_container .index_menu_container>.index_menu_item>div:nth-child(2) .label_desc { font-size: 1rem; position: relative; bottom: 15px; } 
 
 
 
 /*표: item 원 속성*/
-.green_circle, .yellow_circle, .grey_circle{
-    display:inline-block; width : 24px; height : 24px;
-    border-radius: 50%;
-}
+.index_container .green_circle, .yellow_circle, .grey_circle { display:inline-block; width : 24px; height : 24px; border-radius: 50%; } 
 
-.green_circle{ background-color: var(--green_circle); }
-.yellow_circle{ background-color: var(--yellow_circle); }
-.grey_circle{ background-color: var(--grey_circle); }
+.index_container .green_circle { background-color: var(--green_circle); } 
+.index_container .yellow_circle { background-color: var(--yellow_circle); } 
+.index_container .grey_circle { background-color: var(--grey_circle); } 
 
-.small_circle{width : 10px; height : 10px; }
+.index_container .small_circle { width : 10px; height : 10px; } 

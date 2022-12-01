@@ -34,9 +34,9 @@
     <title>SpringReservationWeb</title>
 </head>
 <body>
-
     <script>
         const ListName = {
+            'index' : '관리자 페이지',
             'board' : '공지사항 관리페이지',
             'introduction' : '소개 관리페이지',
             'map' : '오시는 길 관리페이지',
