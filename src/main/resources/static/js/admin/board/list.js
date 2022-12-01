@@ -8,6 +8,7 @@
  const id = {
     update_btn: 'btn_update',
     delete_btn: 'btn_delete',
+    create_btn: 'btn_create',
     publish_chk_head: 'publish_',
     delete_chk_head: 'delete_',
     class_post_num: 'post_num'
@@ -26,6 +27,7 @@ $('document').ready(function(){
 
     $('#'+id.update_btn).on('click',updateFcn);
     $('#'+id.delete_btn).on('click',deleteFcn);
+    $('#'+id.create_btn).on('click',createHandler);
 });
 
 const initialStatus = ()=>{
@@ -45,6 +47,9 @@ const initialStatus = ()=>{
     values.publish = publish;
 }
 
+const createHandler = () =>{
+    $(location).attr("href", "/admin/board/write");
+}
 
 const updateFcn = () => {
     let nums = values.num;
@@ -58,22 +63,48 @@ const updateFcn = () => {
         }
     }
 
-    const idsStr =updateIds.join(',');
-    $.ajax({
-        type: 'PATCH',
-        url: "/admin/board/"+idsStr,
-        async: false,
-        //meta태그의 숨겨진 csrf 토큰을 가져옴
-        headers: {
-          'X-CSRF-TOKEN': $("meta[name='_csrf']").attr("th:content")
-        },
-        success: (response)=>{
-            console.log(response);
-        }   
-    });
+    if(updateIds.length>0){
+        const idsStr =updateIds.join(',');
+        $.ajax({
+            type: 'PATCH',
+            url: "/admin/board/"+idsStr,
+            async: false,
+            //meta태그의 숨겨진 csrf 토큰을 가져옴
+            headers: {
+            'X-CSRF-TOKEN': $("meta[name='_csrf']").attr("th:content")
+            },
+            success: (response)=>{
+                console.log(response);
+            }   
+        });
+    }
+    
 }
 
 const deleteFcn = () => {
+    let deleteIds = [];
 
+    for(let i in nums){
+        if( $('#'+id.delete_chk_head + nums[i]).is(':checked') ) {
+            deleteIds.push( nums[i] ); 
+        }
+    }
+    
+    if(deleteIds.length>0){
+        const idsStr =deleteIds.join(',');
+
+        $.ajax({
+            type: 'DELETE',
+            url: "/admin/board/"+idsStr,
+            async: false,
+            //meta태그의 숨겨진 csrf 토큰을 가져옴
+            headers: {
+            'X-CSRF-TOKEN': $("meta[name='_csrf']").attr("th:content")
+            },
+            success: (response)=>{
+                console.log(response);
+            }   
+        });
+    }
 }
 

@@ -33,7 +33,7 @@ public class MybatisBoardDao implements BoardDao {
     }
     //글개수 확인
     @Override
-    public int getCounts(String key, String val, int isAdmin) {return mapper.getCounts(key, val,isAdmin);}
+    public int getCounts(String key, String val, int isAdmin) {return mapper.getCounts(key, val, isAdmin);}
 
     @Override
     public Board get(int id, int isAdmin){return mapper.get(id, isAdmin);}
@@ -55,8 +55,6 @@ public class MybatisBoardDao implements BoardDao {
 
     @Override
     public int delete(int id) {return mapper.delete(id);}
-    
-
     @Override
     public int hit(int id) {return mapper.hit(id);}
     

@@ -11,15 +11,15 @@
 .board_update_container .update_head { margin: 100px auto 50px auto; text-align: center; font-size: 1.4rem; font-weight: 700; } 
 
 /*흰색 박스*/
-.board_update_container .board_white_box { background-color: white; width: 70%; min-width: 600px; margin: 20px auto 10px auto; padding: 30px 0 40px 0; } 
+.board_update_container .white_box { width: 70%; min-width: 600px; margin: 20px auto 10px auto; padding: 30px 0 40px 0; } 
 
 /*게시글 타이틀*/
 .board_update_container .post_title { display: flex; align-items:baseline; width: 85%; margin: 0 auto; } 
-.board_update_container .post_title label { width:8%; padding-left: 0.5rem; } 
-.board_update_container .post_title input { font-size: 1rem; } 
+.board_update_container .post_title>div:first-child { width:8%; padding-left: 0.5rem; } 
+.board_update_container .post_title>div:nth-child(2) { font-size: 1rem; } 
 
 /*게시글 디테일*/
-.board_update_container .post_details { width: 85%; margin: 10px auto 10px auto; font-size: 0.7rem; } 
+.board_update_container .post_details { width: 85%; margin: 10px auto 10px auto; font-size: 1rem; } 
 .board_update_container .border_top_gray { width:99.5%; border-bottom: var(--table-border-gray) 2px solid; margin-bottom: 1px; } 
 .board_update_container .post_details .border_top_gray+div { background-color: rgb(222,223,223); padding: 1rem 0; display: flex; } 
 .board_update_container .post_details .border_top_gray+div>div:first-child { display: inline-block; width: 68%; padding-left: 1.5rem; } 
@@ -27,9 +27,16 @@
 .board_update_container .post_details .border_top_gray+div>div:nth-child(2) { display: inline-block; width: 30%; padding-right: 1rem; margin-bottom: auto; } 
 
 /*게시글 내용*/
-.board_update_container .post_content { width: 85%; margin: 10px auto 10px auto; font-size: 0.7rem; } 
-.board_update_container .post_content label { padding-left: 1.5rem; } 
-.board_update_container .post_content textarea { width:90%; height: 18rem; margin:0 auto 1rem auto; font-size: 0.7rem; } 
+.board_update_container .post_content { width: 85%; margin: 10px auto 10px auto; font-size: 1rem; } 
+.board_update_container .post_content>div:first-child>div:first-child { padding-left: 1.5rem; } 
+.board_update_container .post_content>div:first-child>div:nth-child(2) { 
+    width:90%; height: fit-content; min-height: 18rem;
+    border: var(--table-border-gray) dashed 1px;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin:0 auto 1rem auto;
+    font-size: 1rem; 
+} 
 
 /*게시글 전송 버튼*/
 .board_update_container .post_content>div:nth-child(2) { margin: 1rem 1rem; display: flex; justify-content: flex-end; } 

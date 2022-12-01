@@ -4,12 +4,22 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-  <definition name="index" template="/WEB-INF/view/inc/layout_index.jsp">
+  <definition name="index" template="/WEB-INF/view/inc/layout.jsp">
     <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
     <put-attribute name="main" value="/WEB-INF/view/index.jsp" />
     <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
     <put-attribute name="includeCSS" value="/css/index.css" />
     <put-attribute name="includeJS" value="/js/index.js" />
+  </definition>
+
+  <definition name="all.head.*.*" template="/WEB-INF/view/inc/layout_header.jsp">
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="header2" value="/WEB-INF/view/inc/header2.jsp" />
+    <put-attribute name="main" value="/WEB-INF/view/{1}/{2}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+    <put-attribute name="includeCSS" value="/css/{1}/{2}.css" />
+    <put-attribute name="includeJS" value="/js/{1}/{2}.js" />
+    <put-attribute name="currentfilename" value="{1}" />
   </definition>
 
   <definition name="all.*.*" template="/WEB-INF/view/inc/layout.jsp">

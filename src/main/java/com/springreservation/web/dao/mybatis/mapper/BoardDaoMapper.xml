@@ -4,7 +4,7 @@
    로그인 관련 DAO 쿼리 매핑
    
    작성자 : 이현수 yzhs.go@gmail.com
-   작성일 : 2022-11-29, 최종수정 2022-12-1
+   작성일 : 2022-11-29, 최종수정 2022-12-2
 -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springreservation.web.dao.BoardDao">
@@ -24,7 +24,7 @@
                     SELECT * FROM board
                     WHERE
                         ${key} LIKE '%${val}%'
-                        <if test = "!#{isAdmin}">AND publish=1</if>
+                        <if test = 'isAdmin==0' >AND publish=1</if>
                     ORDER by id DESC
                 )
             WHERE rownum &lt; #{limit}
@@ -39,7 +39,7 @@
         FROM board
         WHERE
             ${key} LIKE '%${val}%'
-            <if test = "!#{isAdmin}">AND publish=1</if>
+            <if test = 'isAdmin==0'>AND publish=1</if>
     </select>
 
 
@@ -48,41 +48,37 @@
         SELECT  id, title, user_name, reg_date, edit_date, publish, content, hit
         FROM board
         WHERE id = #{id}
-        <if test = "!#{isAdmin}">AND publish=1</if>
+        <if test = 'isAdmin==0'>AND publish=1</if>
     </select>
 
     <!--detail 뷰 혹은, 수정하기 뷰를 요청 했을 때, 이전글 정보-->
     <select id="getPrev" resultMap="board">
-        SELECT  id, title
-        FROM board
-        WHERE 
-            rownum = 
-                (
-                    SELECT  rownum FROM
-                        (
-                        SELECT id FROM board
-                        <if test = "!#{isAdmin}">WHERE publish=1</if>
-                        ORDER by id DESC
-                        )
-                    WHERE id = #{id}
-                )-1
+        SELECT  
+            TEMP_ID AS id, TEMP_TITLE AS title
+        FROM (
+                SELECT 
+                    id,
+                    LAG(id) OVER(ORDER BY id) AS TEMP_ID,
+                    LAG(title) OVER(ORDER BY id) AS TEMP_TITLE
+                FROM board
+                <if test = 'isAdmin==0'>WHERE publish=1</if>
+            ) b 
+        WHERE b.id = #{id}
     </select>
 
     <!--detail 뷰 혹은, 수정하기 뷰를 요청 했을 때, 다음글 정보-->
     <select id="getNext" resultMap="board">
-        SELECT  id, title
-        FROM board
-        WHERE 
-            rownum = 
-                (
-                    SELECT rownum FROM
-                        (
-                        SELECT id FROM board
-                        <if test = "!#{isAdmin}">WHERE publish=1</if>
-                        ORDER by id DESC
-                        )
-                    WHERE id = #{id}
-                )+1
+        SELECT  
+            TEMP_ID AS id, TEMP_TITLE AS title
+        FROM (
+                SELECT
+                    id,
+                    LEAD(id) OVER(ORDER BY id) AS temp_id,
+                    LEAD(title) OVER(ORDER BY id) AS temp_title
+                FROM board
+                <if test = 'isAdmin==0'>WHERE publish=1</if>
+            ) b 
+        WHERE b.id = #{id}
     </select>
 
     <!--post 요청을 보냈을 때-->

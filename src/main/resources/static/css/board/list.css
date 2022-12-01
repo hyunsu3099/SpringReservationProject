@@ -26,28 +26,18 @@
 .board_list_container .column_border> div:first-child { width: 99.5%; margin: 1px 0 0 0; border-bottom: var(--table-border-gray) 2px solid; } 
 .board_list_container .column_border> div:nth-child(2) { width: 99.5%; background-color:rgb(222,223,223); padding-top:5px; margin-left:auto; } 
 
-
 /*작성일, 최종수정일 위치조정*/
 .board_list_container table>tbody>tr>td:nth-child(4) { font-size: 0.8rem; } 
 .board_list_container table tr>td:nth-child(4)>div:nth-child(2) { padding-left: 2rem; }
 
-/*테이블 우측열 가운데정렬(체크박스)*/
-.board_list_container table tr>td:nth-child(n+5) { text-align: center; } 
+/*테이블 우측열 가운데정렬*/
+.board_list_container table tr>td:nth-child(5) { text-align: center; } 
 
 /*테이블 아래*/
 .board_list_container .board_foot { width: 95%; margin: 10px auto 10px auto; display: flex; } 
 
 /*테이블 아래> 리스트*/
-.board_list_container .board_foot>div:first-child { width: 84%; display: flex; justify-content: center; align-items: center; } 
-.board_list_container .board_foot>div:first-child ul { margin:0 0; padding:0 0; } 
-.board_list_container .board_foot>div:first-child ul>li { float:left; margin-left: 1rem; } 
-.board_list_container .board_foot>div:first-child span:last-child { margin-left: 1rem; } 
-
-/*테이블 아래> 버튼*/
-.board_list_container .board_foot>div:nth-child(2){ width: 16%; display: flex; flex-direction: column; } 
-.board_list_container .board_foot>div:nth-child(2)>div { width: 100%; display: flex; justify-content: space-around; align-items: center; } 
-.board_list_container .board_foot>div:nth-child(2)>div:nth-child(1) button { display: inline; width:3.2rem; font-size: 0.7rem; padding: 0 0; } 
-.board_list_container .board_foot>div:nth-child(2)>div:nth-child(1) button:first-child { margin-right: 0.5px; } 
-
-/*테이블 아래> 새글 작성하기 버튼*/
-.board_list_container .board_foot>div:nth-child(2)>div:nth-child(2) button {margin: 10px auto 0 auto; width:5rem; font-size: 0.7rem; padding: 0.4rem 0.4rem; }
+.board_list_container .board_foot {display: flex; justify-content: center; margin: 1rem;} 
+.board_list_container .board_foot ul {  margin:0 0; padding:0 0; } 
+.board_list_container .board_foot ul>li { float:left; margin-left: 1rem; } 
+.board_list_container .board_foot span:last-child { margin-left: 1rem; }

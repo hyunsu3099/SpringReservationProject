@@ -16,8 +16,10 @@ public interface BoardDao {
     public List<Board> getList(int offset, int limit, String key, String val, int isAdmin);
 
     public Board get(int id, int isAdmin);
+
     public Board getPrev(int id, int isAdmin);
     public Board getNext(int id, int isAdmin);
+    
     public int getCounts(String key, String val, int isAdmin);
 
     public int create(Board board);

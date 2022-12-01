@@ -10,7 +10,7 @@
 
         <div class="board_white_box">
             <div class="post_title">
-                <label for="post_title" class="form-label"> ${board.id} </label>
+                <label for="post_title" class="form-label" id="post_id"> ${board.id} </label>
                 <input class="form-control form-control-lg" id="post_title"
                     type="text" aria-label=".form-control-lg example"
                     value="${board.title}">
@@ -41,9 +41,9 @@
                     <textarea class="form-control" id="post_content" rows="15">${board.content}</textarea>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-outline-dark">돌아가기</button>
-                    <button type="button" class="btn btn-outline-dark">수정</button>
-                    <button type="button" class="btn btn-outline-dark">삭제</button>
+                    <button type="button" class="btn btn-outline-dark" id="btn_back">돌아가기</button>
+                    <button type="button" class="btn btn-outline-dark" id="btn_update">수정</button>
+                    <button type="button" class="btn btn-outline-dark" id="btn_delete">삭제</button>
                 </div>
 
             </div>
