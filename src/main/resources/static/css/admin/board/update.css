@@ -4,7 +4,7 @@
 */
 :root { --btn-graycolor: rgb(209, 209, 210); --table-border-gray :rgb(69,69,69); } 
 
-.board_update_container { font-family: 'Jonng Na Joh'; font-weight: 500; } 
+.board_update_container { font-family: 'Joong Na Joh'; font-weight: 500; } 
 .board_update_container a { text-decoration: none; color: var(--Yifontcolor); } 
 
 /*타이틀*/

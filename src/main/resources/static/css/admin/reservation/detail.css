@@ -1,0 +1,67 @@
+:root { --table_tab_color : rgb(199,200,200); } 
+
+.reservation_detail_container { } 
+
+.reservation_detail_container>div:first-child { width:fit-content; margin:5rem auto 1rem auto; } 
+
+/*표 컨테이너 (whitebox)*/
+.reservation_detail_container .white_box { padding-top: 1rem; padding-bottom: 5rem; min-width: 60rem; max-width: 80rem; width: 70%; margin: 10px auto 100px auto; } 
+.reservation_detail_container .white_box>div:first-child{font-size: 1.8rem; font-weight: 600; margin: 10px auto; width: fit-content;}
+
+.reservation_detail_container .table_container { width: 95%; margin: 50px auto 20px auto; }
+
+/*표*/
+.reservation_detail_container .table_reservation{ width:100%; 
+    margin: 2rem 0 2rem 0;} 
+.reservation_detail_container .table_reservation:nth-child(2n+1){
+    border-radius: 1rem;
+    background-color: #F8F9FA;
+    background-clip:padding-box;
+} 
+
+/* 방번호*/
+.reservation_detail_container .table_reservation tbody td{}
+/* 괄호*/
+.reservation_detail_container .table_reservation>tbody>tr:first-child>td:nth-child(2){
+    overflow: hidden; font-family: "IBM Plex Sans KR"; font-weight:100; font-size: 10rem; padding:0 0; } 
+
+/*표 내용*/
+.reservation_detail_container .table_reservation tbody td tbody,
+.reservation_detail_container .table_reservation tbody td table { width:100%}
+
+/*표 내용*/
+.reservation_detail_container .table_reservation tbody td tbody,
+.reservation_detail_container .table_reservation tbody td table { width:100%}
+
+/*표 내용*/
+.reservation_detail_container .table_reservation tbody td tbody,
+.reservation_detail_container .table_reservation tbody td table { width:100%}
+
+/*표 두께*/
+.reservation_detail_container .table_reservation tbody tr td { height: 4rem; }
+
+/*날짜 가운데조정*/
+.reservation_detail_container .table_reservation tbody tr:nth-child(1)>td:nth-child(3)>div,
+.reservation_detail_container .table_reservation tbody tr:nth-child(n+2)>td:nth-child(1)>div{ text-align: center; }
+/*예약가능상태 글자 두껍게*/
+.reservation_detail_container .table_reservation tbody tr:nth-child(1)>td:nth-child(3)>div:nth-child(2),
+.reservation_detail_container .table_reservation tbody tr:nth-child(n+2)>td:nth-child(1)>div:nth-child(2){ font-weight: 600; }
+
+/*표 내용 간격조정*/
+.reservation_detail_container .table_reservation tbody tr:nth-child(n+2)>td:nth-child(n+2)>div,
+.reservation_detail_container .table_reservation tbody tr:nth-child(1)>td:nth-child(n+4)>div{ margin : 0.4rem 0 0.4rem 0; }
+
+/*버튼크기*/
+.reservation_detail_container .table_reservation tbody button { width:5rem; padding: 0.2rem 0; } 
+
+
+
+
+/*표밑 버튼*/
+.reservation_detail_container .submit_buttons,
+.reservation_detail_container .disable_button{
+    display: flex; align-items: center; justify-content: center;
+}
+.reservation_detail_container .submit_buttons>div,
+.reservation_detail_container .disable_button>div{margin:0 .5rem;}
+.reservation_detail_container .disable_button>div>div{ position: relative; top: 0.45rem;}

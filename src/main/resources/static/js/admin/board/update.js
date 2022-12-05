@@ -28,6 +28,9 @@ $('document').ready(function(){
     $('#'+id.btn_back).on('click',backHandler);
 });
 
+// 업데이트 페이지에서, 수정하기 버튼을 눌렀을 때 호출,
+// put /admin/board/{id} 요청
+// 수정된 데이터를 BoardDto에 담아 전달
 const putFcn = () =>{
     const id = $('#'+this.id.post_id).text();
     
@@ -52,8 +55,10 @@ const putFcn = () =>{
             $(location).attr("href","/admin/board");
         }   
     });
-    
 }
+
+// 업데이트 페이지에서, 삭제하기 버튼을 눌렀을 때 호출,
+// delete /admin/board/{id} 요청
 const deleteFcn = () =>{
 
     const id = $('#'+this.id.post_id).text();
@@ -73,6 +78,7 @@ const deleteFcn = () =>{
         }   
     });
 }
+
 const backHandler = () =>{
     $(location).attr("href","/admin/board");
 }

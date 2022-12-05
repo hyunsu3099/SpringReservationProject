@@ -1,0 +1,50 @@
+:root { --table_tab_color : rgb(199,200,200); }
+
+/*root 옵션*/
+.reservation_list_container ul li { padding: 0 0; } 
+
+/*main*/
+.reservation_list_container { } 
+
+/*링크 list or history*/
+.reservation_list_container .reserv_page_link { width:fit-content; margin: 0 auto 50px auto; } 
+.reservation_list_container .reserv_page_link span:nth-child(2) { padding-left: 2rem; } 
+.reservation_list_container .reserv_page_link+div { width:fit-content; margin:1rem auto; } 
+
+/*표 컨테이너 (whitebox)*/
+.reservation_list_container .white_box { padding-top: 1rem; padding-bottom: 5rem;  min-width: 60rem; width: 70%; margin: 10px auto 100px auto; } 
+
+/*표 컨테이너*/
+.reservation_list_container .table_container { width: 95%; margin: 50px auto 20px auto; display: flex; flex-direction: row; text-align: center; } 
+.reservation_list_container .table_container > div:first-child { width: 15%; height: max-content; } 
+.reservation_list_container .table_container > div:nth-child(2) { width: 85%; height: max-content; } 
+.reservation_list_container .table_container > div > div { height: 3rem; } 
+
+/*표 리스트 이동하기*/ /*js 파일 작성 후 재 수정*/ 
+.reservation_list_container .table_container > div:nth-child(2) > div > div { margin: auto auto; width: 99%; background-color: var(--table_tab_color); border-radius: 1rem; display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; } 
+
+/*칼럼표*/
+.reservation_list_container .table_rowname { width: 100%; height: fit-content; } 
+.reservation_list_container .table_rowname tbody>tr>td, .reservation_list_container .table_reservation> tbody>tr>td { height: 13rem; } 
+.reservation_list_container .table_rowname tr>td:first-child { width: 70%; } 
+.reservation_list_container .table_rowname tr>td:nth-child(2) { width: 30%; overflow: hidden; } 
+.reservation_list_container .table_rowname span { font-family: "IBM Plex Sans KR"; font-weight:100; font-size: 8rem; padding:0 0; } 
+
+/*표 리스트*/
+.reservation_list_container .index_table_items { padding: 0 0; height:100%; width: 100%; display: inline-block; white-space: nowrap; overflow:hidden; border-collapse: 
+ collapse; } 
+.reservation_list_container .index_table_item { width:100%; display:inline-block; transition: all .35s; } 
+
+/*표: 예약현황 표*/
+.reservation_list_container .table_reservation { width:100%; height:fit-content; } 
+.reservation_list_container .table_reservation> tbody>tr>td>table { margin:auto } 
+
+
+/*표: 버튼1*/
+.reservation_list_container .submit_buttons,
+.reservation_list_container .disable_button{
+    display: flex; align-items: center; justify-content: center;
+}
+.reservation_list_container .submit_buttons>div,
+.reservation_list_container .disable_button>div{margin:0 .5rem;}
+.reservation_list_container .disable_button>div>div{ position: relative; top: 0.45rem;}
