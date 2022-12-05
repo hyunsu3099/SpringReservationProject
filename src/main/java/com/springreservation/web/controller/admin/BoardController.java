@@ -86,9 +86,21 @@ public class BoardController {
         return model;
     }// END of getList()
     
-    //상세 페이지( 수정하기 페이지 ) Get
-    //Model ,{list: 게시글리스트, pages: 보여줄 목록 페이지들, current: 현재페이지} jsp로 응답
-    //뷰 : "admin.head.board.list
+    //글쓰기 페이지 Get
+    @GetMapping("/write")
+    public String writepage(){return "admin.board.create"; }
+
+    //글쓰기 Post
+    @ResponseBody
+    @PostMapping("")
+    public String create(@RequestBody BoardDto boardDto){
+        int result = boardService.create(boardDto.getBoard(),isAdmin);
+        return "{ \"result\" : [ {\"result\": \" "+ result + "\"} ] }";
+    }
+    
+    //상세 페이지 Get
+    //Model ,{board: 게시글, prev:이전글, next: 다음글} jsp로 응답
+    //뷰 : "all.board.detail
     @GetMapping("/{id}")
     public ModelAndView updateview( @PathVariable int id){
 
@@ -102,18 +114,6 @@ public class BoardController {
         model.addObject("next", next);
         model.setViewName("admin.board.update");
         return model;
-    }
-
-    //글쓰기 페이지 Get
-    @GetMapping("/write")
-    public String writepage(){return "admin.board.create"; }
-
-    //글쓰기 Post
-    @ResponseBody
-    @PostMapping("")
-    public String create(@RequestBody BoardDto boardDto){
-        int result = boardService.create(boardDto.getBoard(),isAdmin);
-        return "{ \"result\" : [ {\"result\": \" "+ result + "\"} ] }";
     }
 
     //수정하기 Put(전체 수정)
@@ -145,9 +145,7 @@ public class BoardController {
         String[] str = StringUtils.commaDelimitedListToStringArray(ids);
         List<Integer> id = new ArrayList<>();
         for(int i=0; i<str.length; i++) id.add(Integer.parseInt(str[i]));
-
         int result = boardService.deletePosts(id, isAdmin);
-
         return "{ \"result\" : [ {\"result\": \" "+ result + "\"} ] }";
     }
 }

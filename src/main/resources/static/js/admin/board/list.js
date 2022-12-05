@@ -30,6 +30,9 @@ $('document').ready(function(){
     $('#'+id.create_btn).on('click',createHandler);
 });
 
+// 리스트 페이지가 업로드 되었을떄, publish 체크박스 상태를 확인
+// 각 게시글의 id를 values.num에,
+// 각 게시글의 publish를 values.publish에 입력
 const initialStatus = ()=>{
 
     let nums= [];
@@ -51,18 +54,24 @@ const createHandler = () =>{
     $(location).attr("href", "/admin/board/write");
 }
 
+// 리스트 페이지에서, 업데이트 버튼을 눌렀을 때 호출,
+// patch /admin/board/{ids} 요청 
+// ids: 수정할 아이디 목록 ex) "1,3,4"
 const updateFcn = () => {
     let nums = values.num;
     let publish = values.publish;
 
     let updateIds = [];
 
+    //체크박스 상태가 초기상태와 변했는지를 확인
+    //체크박스 상태가 변한 id 값만 patch 요청
     for(let i in nums){
         if( $('#'+id.publish_chk_head + nums[i]).is(':checked') != publish[i]) {
             updateIds.push( nums[i] ); 
         }
     }
 
+     //체크박스 상태가 변한 경우가 있을 때만 ajax 요청
     if(updateIds.length>0){
         const idsStr =updateIds.join(',');
         $.ajax({
@@ -80,6 +89,7 @@ const updateFcn = () => {
     }
     
 }
+
 
 const deleteFcn = () => {
     let deleteIds = [];

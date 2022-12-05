@@ -5,9 +5,9 @@
     --background_footer:rgb(175,170,166);
     --header2-bordergray : #828181;
 } 
-@font-face { font-family: 'Jonng Na Joh'; font-weight: 500; 
+@font-face { font-family: 'Joong Na Joh'; font-weight: 500; 
     src: local('/css/inc/font/Joonggonara-L.woff') format('woff');}
-@font-face { font-family: 'Jonng Na Joh'; font-weight: 700; 
+@font-face { font-family: 'Joong Na Joh'; font-weight: 700; 
     src: local('/css/inc/font/Joonggonara-M.woff') format('woff');}
 
 
@@ -17,10 +17,14 @@
 a { text-decoration: none; color: var(--YIfontcolor); }
 ul{list-style: none; }
 .hidden { display: none; }
-.red_text{ color:red;}
 .white_box{background-color: white;}
 .selected_item { font-weight: 700; } 
 .selected_item >a { pointer-events: none;cursor: default; } 
+
+.red_text{ color:red;}
+.gray_text{ color:gray;}
+.darkgray_text{ color:darkgray;}
+.green_text{ color:green;}
 
 /**body**/
 html, body { height: 100%; } 
