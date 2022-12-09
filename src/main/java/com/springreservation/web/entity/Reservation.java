@@ -1,72 +1,60 @@
+/**
+ * Reservation.java
+ * 예약이름에 대한 데이터베이스 테이블 엔티티
+ * 
+ * 작성자 : 이현수 yzhs.go@gmail.com
+ * 작성일 : 2022-12-7, 최종수정 2022-12-7
+ */
 package com.springreservation.web.entity;
 
-import java.util.Date;
-
 public class Reservation {
-    private String memberName;
-    private Date regDate;
-    private String reservationId;
-    private String reservationDate;
-    private String reservationTime;
-    private String reservationRoom;
-    private boolean reservationYn;
-    public String getMemberName() {
-        return memberName;
+    private int id;
+    private String reservationName;
+    private int capacity;
+    private String timeOpen;
+    private String timeClose;
+    private String timeInterval;
+    private String minimumOrder;
+    public String getMinimumOrder() {
+        return minimumOrder;
     }
-    public void setMemberName(String memberName) {
-        this.memberName = memberName;
+    public void setMinimumOrder(String minimumOrder) {
+        this.minimumOrder = minimumOrder;
     }
-    public Date getRegDate() {
-        return regDate;
+    public int getId() {
+        return id;
     }
-    public void setRegDate(Date regDate) {
-        this.regDate = regDate;
+    public void setId(int id) {
+        this.id = id;
     }
-    public String getReservationId() {
-        return reservationId;
+    public String getReservationName() {
+        return reservationName;
     }
-    public void setReservationId(String reservationId) {
-        this.reservationId = reservationId;
+    public void setReservationName(String reservationName) {
+        this.reservationName = reservationName;
     }
-    public String getReservationDate() {
-        return reservationDate;
+    public int getCapacity() {
+        return capacity;
     }
-    public void setReservationDate(String reservationDate) {
-        this.reservationDate = reservationDate;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
-    public String getReservationTime() {
-        return reservationTime;
+    public String getTimeOpen() {
+        return timeOpen;
     }
-    public void setReservationTime(String reservationTime) {
-        this.reservationTime = reservationTime;
+    public void setTimeOpen(String timeOpen) {
+        this.timeOpen = timeOpen;
     }
-    public String getReservationRoom() {
-        return reservationRoom;
+    public String getTimeClose() {
+        return timeClose;
     }
-    public void setReservationRoom(String reservationRoom) {
-        this.reservationRoom = reservationRoom;
+    public void setTimeClose(String timeClose) {
+        this.timeClose = timeClose;
     }
-    public boolean isReservationYn() {
-        return reservationYn;
+    public String getTimeInterval() {
+        return timeInterval;
     }
-    public void setReservationYn(boolean reservationYn) {
-        this.reservationYn = reservationYn;
+    public void setTimeInterval(String timeInterval) {
+        this.timeInterval = timeInterval;
     }
-    @Override
-    public String toString() {
-        return "Reservation [memberName=" + memberName + ", regDate=" + regDate + ", reservationId=" + reservationId
-                + ", reservationDate=" + reservationDate + ", reservationTime=" + reservationTime + ", reservationRoom="
-                + reservationRoom + ", reservationYn=" + reservationYn + "]";
-    }
-    public Reservation(String memberName, Date regDate, String reservationId, String reservationDate,
-            String reservationTime, String reservationRoom, boolean reservationYn) {
-        this.memberName = memberName;
-        this.regDate = regDate;
-        this.reservationId = reservationId;
-        this.reservationDate = reservationDate;
-        this.reservationTime = reservationTime;
-        this.reservationRoom = reservationRoom;
-        this.reservationYn = reservationYn;
-    }
-    public Reservation(){}
 }

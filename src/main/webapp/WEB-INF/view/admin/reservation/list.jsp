@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <main>
@@ -20,10 +21,9 @@
                     <table class="table_rowname">
                         <thead><tr><td> &nbsp</td><td> &nbsp</td></tr></thead>
                         <tbody>
-                            <tr><td>A</td><td><span>{</span></td> </tr>
-                            <tr><td>B</td><td><span>{</span></td> </tr>
-                            <tr><td>C</td><td><span>{</span></td> </tr>
-                            <tr><td>D</td><td><span>{</span></td> </tr>
+                            <c:forEach var="n" items="${reservationNames}">
+                                <tr><td>${n.reservationName}</td><td><span>{</span></td> </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -46,10 +46,9 @@
                                 <tr><td>11/12(월)</td><td>11/13(화)</td><td>11/14(수)</td><td>11/15(목)</td><td>11/16(금)</td><td>11/17(토)</td></tr>
                             </thead>
                             <tbody><!-- 총 6 * 4 개 칼럼-->
-                                <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
-                                <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
-                                <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
-                                <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <c:forEach var="n" items="${reservationNames}">
+                                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                         </li>
@@ -59,13 +58,19 @@
             
             <script>
                 const temp_html = `<table>
-                <tr><td><div>9:00~12:00</div><div>예약가능</div></td><td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td></tr>
-                <tr><td><div>12:00~15:00</div><div>예약가능</div></td><td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td></tr>
-                <tr><td><div>15:00~18:00</div><div>예약가능</div></td><td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td></tr>
+                <tr><td><div>9:00~12:00</div></td></tr>
+                <tr><td>
+                    <div class="timebar">
+                        <div class="disabled" style="height:40%"></div>
+                        <div class="enabled" style="height:50%"></div>
+                        <div class="disabled" style="height:10%"></div>
+                    </div>
+                </td></tr>
+                <tr><td><div>예약가능</div></td><td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td></tr>
                 </table>`;
                 $('.reservation_list_container .table_reservation>tbody>tr>td').append(temp_html);
             </script>
-
+            
             <div class="submit_buttons">
                 <div>선택한 목록을 </div>
                 <div>
