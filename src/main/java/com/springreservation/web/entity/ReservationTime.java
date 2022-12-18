@@ -1,5 +1,7 @@
 package com.springreservation.web.entity;
 
+import com.springreservation.web.dto.ReservationStatusDto;
+
 public class ReservationTime {
     private String startTime;
     private boolean enabledYn = true;
@@ -14,5 +16,11 @@ public class ReservationTime {
     }
     public void setEnabledYn(boolean enabledYn) {
         this.enabledYn = enabledYn;
+    }
+
+    public ReservationStatusDto getReservationStatusDto(){
+        ReservationStatusDto dto = new ReservationStatusDto();
+        dto.setReservationTime(startTime);
+        return dto;
     }
 }

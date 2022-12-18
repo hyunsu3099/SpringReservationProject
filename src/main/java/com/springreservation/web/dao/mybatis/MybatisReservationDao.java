@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.springreservation.web.dao.ReservationDao;
+import com.springreservation.web.entity.OrderView;
 import com.springreservation.web.entity.Reservation;
+import com.springreservation.web.entity.ReservationOrder;
 import com.springreservation.web.entity.ReservationTime;
 
 @Repository
@@ -25,18 +27,23 @@ public class MybatisReservationDao implements ReservationDao {
     }
 
     @Override
-    public List<Reservation> getReservationList(String startdate, String enddate) {
-        return mapper.getReservationList(startdate, enddate);
-    }
-
-    @Override
     public List<ReservationTime> getReservationTimes(int reservationId){
         return mapper.getReservationTimes(reservationId);
     }
 
     @Override
-    public List<ReservationTime> getReservedTimes(String startdate, String enddate, int reservationId){
-        return mapper.getReservedTimes(startdate, enddate,reservationId);
+    public List<OrderView> getOrders(String startdate, String enddate, int reservationId){
+        return mapper.getOrders(startdate, enddate,reservationId);
     }
 
+    //orderid(int)형 반환
+    @Override
+    public int insertOrderDetail(ReservationOrder reservationOrder) {
+        return mapper.insertOrderDetail(reservationOrder);
+    }
+    
+    @Override
+    public int insertOrderTime(ReservationOrder reservationOrder) {
+        return mapper.insertOrderTime(reservationOrder);
+    }
 }

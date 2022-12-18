@@ -17,6 +17,22 @@
     <result column="reservation_name" property="reservationName" />
   </resultMap>
 
+  <resultMap type="com.springreservation.web.entity.OrderView" id="orderView">
+    <id column="id" property="id" />
+    <result column="member_id" property="memberId" />
+    <result column="member_name" property="memberName" />
+    <result column="member_email" property="memberEmail" />
+    <result column="member_phone" property="memberPhone" />
+    <result column="reservation_id" property="reservationId" />
+    <result column="reservation_name" property="reservationName" />
+    <result column="reservation_date" property="reservationDate" />
+    <result column="time_start" property="timeStart" />
+    <result column="time_end" property="timeEnd" />
+    <result column="enabled_yn" property="enabledYn" />
+    <result column="expired_yn" property="expiredYn" />
+    <result column="reg_date" property="regDate" />
+  </resultMap>
+
 
   <select id="getReservationNames" resultMap="reservation">
     SELECT id, reservation_name, time_open, time_close, time_interval, minimum_order
@@ -26,17 +42,57 @@
   <select id="getReservationTimes" resultMap="reservationTime">
     SELECT time_start
     FROM time_policy t
-    INNER JOIN reservation(id) r ON t.reservation_id
+    INNER JOIN reservation r ON (r.id = t.reservation_id)
+    WHERE r.id=#{reservationId}
   </select>
 
-  <select id="getReservedTimes" resultMap="reservationTime">
-    SELECT time_start
-    FROM time_policy t
-    INNER JOIN order_time(t_id) ot ON t.id
-    INNER JOIN order_detail(id) od ON ot.order_id
-    WHERE od.reservation_date 
-      BETWEEN 'TO_DATE('${startdate}', 'YYYYMMDD')' 
-      AND TO_DATE('${enddate}', 'YYYYMMDD')
+  <select id="getOrders" resultMap="orderView">
+    SELECT id, member_id, reservation_id, reservation_date, time_start, time_end, enabled_yn, expired_yn, member_name, member_email, member_phone, reservation_name
+    FROM order_view
+    WHERE 
+      reservation_date
+      BETWEEN	TO_DATE('${startdate}','yyyymmdd') AND 
+        TO_DATE('${enddate}','yyyymmdd')
   </select>
+
+
+  <insert id="insertOrderDetail" parameterType="com.springreservation.web.entity.ReservationOrder">
+    INSERT INTO order_detail(
+      id,
+      member_id,
+      reservation_id,
+      reservation_date,
+      time_start,
+      time_end,
+      enabled_yn,
+      reg_date
+    )VALUES(
+      order_seq.NEXTVAL,
+      #{memberId},
+      #{reservationId},
+      TO_DATE('${reservationDate}','yyyymmdd'),
+      '${timeStart}',
+      '${timeEnd}',
+      #{enabledYn},
+      sysdate
+    )
+    <selectKey resultType="int" keyProperty="order_seq" order="AFTER">
+      SELECT order_seq.CURRVAL FROM dual
+    </selectKey>
+  </insert>
+
+  <insert id="insertOrderTime" parameterType="com.springreservation.web.entity.ReservationOrder">
+    INSERT INTO order_time(order_id,t_id)
+    VALUES
+    <foreach collection="list" item="item" index="index" separator=",">
+      ( 
+        #{item.id}, 
+        (SELECT id from time_policy
+          WHERE reservation_id=#{item.reservationId}
+          AND time_start='${item.timeStart}'
+        )
+      )
+    </foreach>
+  </insert>
 
 </mapper>

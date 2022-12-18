@@ -3,7 +3,7 @@
  * 관리자계정의 예약페이지 요청처리
  * 
  * 작성자 : 이현수 yzhs.go@gmail.com
- * 작성일 : 2022-11-28, 최종수정 2022-12-7
+ * 작성일 : 2022-11-28, 최종수정 2022-12-18
  */
 package com.springreservation.web.controller.admin;
 
@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springreservation.web.dto.OrderDto;
 import com.springreservation.web.dto.ReservationStatusDto;
+import com.springreservation.web.entity.ReservationOrder;
 import com.springreservation.web.service.ReservationService;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,25 +27,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller("AdminReservationController")
 @RequestMapping("/admin/reservation")
 public class ReservationController {
+
     @Autowired
     private ReservationService reservationService;
     private final int isAdmin=1;
 
-    @GetMapping("")
+    // 입력변수가 없을때
     public ModelAndView reservation(){
     
         ModelAndView model = new ModelAndView();
         model.addObject("reservationNames", reservationService.getReservationNames());
+        model.addObject("status", reservationService.getReservatrionStatuses());
 
         model.setViewName("admin.head.reservation.list");
         return model;
     }
-    
-    @GetMapping("/{id}")
-    public ModelAndView detail( @PathVariable int id){
-        ModelAndView model = new ModelAndView();
-        model.addObject("reservationTimes", reservationService.getReservationTimes("1209",1));
 
+    @GetMapping("")
+    public ModelAndView reservation(String startdate, String enddate){
+
+        if(startdate==null || startdate.equals("")) 
+        return reservation();
+
+        ModelAndView model = new ModelAndView();
+        model.addObject("reservationNames", reservationService.getReservationNames());
+        model.addObject("status", reservationService.getReservatrionStatuses(startdate, enddate));
+
+        model.setViewName("admin.head.reservation.list");
+        return model;
+
+    }
+    
+    @GetMapping("/{date}")
+    public ModelAndView detail( @PathVariable String date){
+        ModelAndView model = new ModelAndView();
+        model.addObject("reservationTimes", reservationService.getReservatrionStatuses("1209","1209"));
         model.setViewName("admin.reservation.detail");
         return model;
     }
@@ -55,9 +73,10 @@ public class ReservationController {
 
     @PostMapping(value="")
     @ResponseBody
-    public String post(@RequestBody ReservationStatusDto reservationStatusDto) {
-        //TODO: process POST request
+    public String post(@RequestBody ReservationOrder reservationOrder) {
         
+        int result = reservationService.order(reservationOrder);
+
         return "";
     }
     
