@@ -14,7 +14,8 @@
   </resultMap>
 
   <resultMap type="com.springreservation.web.entity.ReservationTime" id="reservationTime">
-    <result column="reservation_name" property="reservationName" />
+    <result column="time_start" property="timeStart" />
+    <result column="enabled_yn" property="enabledYn" />
   </resultMap>
 
   <resultMap type="com.springreservation.web.entity.OrderView" id="orderView">

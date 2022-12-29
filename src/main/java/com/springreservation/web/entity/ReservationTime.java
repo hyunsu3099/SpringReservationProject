@@ -3,13 +3,13 @@ package com.springreservation.web.entity;
 import com.springreservation.web.dto.ReservationStatusDto;
 
 public class ReservationTime {
-    private String startTime;
+    private String timeStart;
     private boolean enabledYn = true;
-    public String getStartTime() {
-        return startTime;
+    public String getTimeStart() {
+        return timeStart;
     }
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setTimeStart(String timeStart) {
+        this.timeStart = timeStart;
     }
     public boolean isEnabledYn() {
         return enabledYn;
@@ -20,7 +20,7 @@ public class ReservationTime {
 
     public ReservationStatusDto getReservationStatusDto(){
         ReservationStatusDto dto = new ReservationStatusDto();
-        dto.setReservationTime(startTime);
+        dto.setReservationTime(timeStart);
         return dto;
     }
 }

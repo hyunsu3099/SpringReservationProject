@@ -7,6 +7,8 @@
  */
 package com.springreservation.web.controller.admin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,36 +34,30 @@ public class ReservationController {
     private ReservationService reservationService;
     private final int isAdmin=1;
 
-    // 입력변수가 없을때
+    @GetMapping("")
     public ModelAndView reservation(){
-    
+
         ModelAndView model = new ModelAndView();
         model.addObject("reservationNames", reservationService.getReservationNames());
-        model.addObject("status", reservationService.getReservatrionStatuses());
 
         model.setViewName("admin.head.reservation.list");
         return model;
     }
 
-    @GetMapping("")
-    public ModelAndView reservation(String startdate, String enddate){
+    @GetMapping(value="/status")
+    @ResponseBody
+    public List<ReservationStatusDto> getStatus(String startdate){
 
-        if(startdate==null || startdate.equals("")) 
-        return reservation();
+        if(startdate==null || startdate.equals(""))
+            return reservationService.getReservatrionStatuses();
 
-        ModelAndView model = new ModelAndView();
-        model.addObject("reservationNames", reservationService.getReservationNames());
-        model.addObject("status", reservationService.getReservatrionStatuses(startdate, enddate));
-
-        model.setViewName("admin.head.reservation.list");
-        return model;
-
+        return reservationService.getReservatrionStatuses(startdate);
     }
     
     @GetMapping("/{date}")
     public ModelAndView detail( @PathVariable String date){
         ModelAndView model = new ModelAndView();
-        model.addObject("reservationTimes", reservationService.getReservatrionStatuses("1209","1209"));
+        model.addObject("reservationTimes", reservationService.getReservatrionStatuses());
         model.setViewName("admin.reservation.detail");
         return model;
     }

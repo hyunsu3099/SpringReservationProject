@@ -78,14 +78,13 @@ public class ReservationOrder {
         List<ReservationTime> list = new ArrayList<>();
 
         try{
-
             Date start = formatter.parse(this.timeStart);
-            Date end = formatter.parse(this.timeEnd);
             Calendar cal = Calendar.getInstance(); cal.setTime(start);
+            Calendar end =  Calendar.getInstance(); end.setTime(formatter.parse(this.timeEnd));
 
             while(cal.before(end)){
                 ReservationTime reservationTime= new ReservationTime();
-                reservationTime.setStartTime(formatter.format(cal.getTime()));
+                reservationTime.setTimeStart(formatter.format(cal.getTime()));
 
                 list.add(reservationTime);
                 cal.add(Calendar.MINUTE,30);

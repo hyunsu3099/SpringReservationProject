@@ -10,18 +10,16 @@ package com.springreservation.web.service;
 import java.text.ParseException;
 import java.util.List;
 
-import com.springreservation.web.dto.OrderDto;
 import com.springreservation.web.dto.ReservationStatusDto;
 import com.springreservation.web.entity.Reservation;
 import com.springreservation.web.entity.ReservationOrder;
-import com.springreservation.web.entity.ReservationTime;
 
 public interface ReservationService {
 
     public List<Reservation> getReservationNames();
 
     public List<ReservationStatusDto> getReservatrionStatuses(String startdate, String enddate, int reservationId) throws ParseException;
-    public List<ReservationStatusDto> getReservatrionStatuses(String startdate, String enddate) ;
+    public List<ReservationStatusDto> getReservatrionStatuses(String startdate) ;
     public List<ReservationStatusDto> getReservatrionStatuses();
 
     public int order(ReservationOrder reservationOrder);

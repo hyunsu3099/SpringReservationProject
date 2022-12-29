@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
+<script>
+
+</script>
+
 <main>
     <div class="reservation_list_container">
         <div class="reserv_page_link">
@@ -28,7 +32,6 @@
                     </table>
                 </div>
                 <div> <!-- row table -->
-                    <div class="hidden"></div>
                     <div>
                         <div>
                             <span class="left" ><a>◀ </a></span>
@@ -39,7 +42,7 @@
 
                     <ul class="index_table_items" id="index_table_items" >
                         <li class="index_table_item" id="index_table_item_1">
-                        <table class="table_reservation">
+                        <table class="table_reservation" id="table_reservation">
                             <!--6개 열-->
                             <colgroup><col><col><col><col><col><col></colgroup>
                             <thead>
@@ -57,24 +60,35 @@
             </div><!-- table container 끝-->
             
             <script>
-                const temp_html = `<table>
-                <tr><td><div>9:00~12:00</div></td></tr>
-                <tr><td>
-                    <div class="timebar">
-                        <div class="disabled" style="height:40%"></div>
-                        <div class="enabled" style="height:50%"></div>
-                        <div class="disabled" style="height:10%"></div>
-                    </div>
-                </td></tr>
-                <tr><td><div>예약가능</div></td><td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td></tr>
-                </table>`;
-                $('.reservation_list_container .table_reservation>tbody>tr>td').append(temp_html);
+                // const temp_html = `<div class="round_box">
+                // <table>
+                // <tr><td><div>9:00~12:00</div></td></tr>
+                // <tr><td>
+                //     <div class="timebar">
+                //         <div class="time_disabled" style="height:40%"></div>
+                //         <div class="time_enabled" style="height:50%"></div>
+                //         <div class="time_disabled" style="height:10%"></div>
+                //     </div>
+                // </td></tr>
+                // <tr><td><div>예약가능</div></td><td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td></tr>
+                // </table>
+                // </div>`;
+                // $('.reservation_list_container .table_reservation>tbody>tr>td').append(temp_html);
             </script>
+
+            <div class="time_selects">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
             
             <div class="submit_buttons">
                 <div>선택한 목록을 </div>
                 <div>
-                    <button type="button" class="btn btn-success">예약가능으로 변경</button>
+                    <button type="button" class="btn btn-success" id="">예약취소</button>
                 </div>
                 <div>
                     <button type="button" class="btn btn-secondary">예약됨으로 변경</button>

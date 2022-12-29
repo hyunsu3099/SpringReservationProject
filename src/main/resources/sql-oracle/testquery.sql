@@ -96,7 +96,36 @@ SELECT * FROM time_policy;
 DELETE FROM time_policy
 WHERE id=1;
 
-ALTER TABLE ORDER_TIME DROP COLUMN room_name;
-
+ALTER TABLE RESERVATION DROP COLUMN room_name;
+ALTER TABLE RESERVATION ADD(reservation_name varchar2(50))
 ALTER TABLE ORDER_TIME DROP COLUMN disabled;
 ALTER TABLE ORDER_TIME ADD(enabled_yn number(1) DEFAULT 1);
+
+
+SELECT * FROM reservation;
+
+UPDATE RESERVATION 
+SET reservation_name='instrument D'
+WHERE id=4;
+
+
+
+SELECT id, member_id, reservation_id, reservation_date, time_start, time_end, enabled_yn, expired_yn, member_name, member_email, member_phone, reservation_name
+FROM ORDER_VIEW
+WHERE 
+	reservation_date
+	BETWEEN	to_date('20221215','yyyymmdd') AND 
+		to_date('20221218','yyyymmdd')
+		
+		
+SELECT time_start
+FROM time_policy t
+INNER JOIN reservation r ON (r.id = t.reservation_id)
+WHERE r.id=1
+
+SELECT * FROM ORDER_DETAIL od \
+
+select order_seq.currval from dual
+
+
+SELECT * FROM order_seq

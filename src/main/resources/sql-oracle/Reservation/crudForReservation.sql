@@ -38,3 +38,34 @@ WHERE r.reservation_date BETWEEN
 ORDER BY reservation_date asc,
 	reservation_room asc,
 	reservation_time ASC;
+
+
+/*insert 예약상세 */
+INSERT INTO ORDER_DETAIL 
+(id,
+member_id,
+reservation_id,
+reservation_date,
+time_start,
+time_end,
+enabled_yn,
+reg_date
+)
+VALUES
+(
+order_seq.nextval,
+1003,
+1,
+to_date('20221220','yyyymmdd'),
+'1200',
+'1400',
+1,
+sysdate
+)
+
+
+/*insert 예약 time */
+INSERT INTO ORDER_time 
+(order_id, t_id)
+VALUES
+()
